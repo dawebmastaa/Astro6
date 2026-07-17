@@ -2,6 +2,7 @@
 import { collections } from "@/content.config";
 import { getCollection, getEntry, render } from "astro:content";
 import Card1 from "@/components/blocks/cards/Card1.astro";
+import Card2 from "@/components/blocks/cards/Card1.astro";
 import ArticleLayout from "@/layouts/Articles.astro";
 import PostLayout from "@/layouts/Posts.astro";
 import ButtonLink from "@/components/ui/ButtonLink.astro";
@@ -55,5 +56,5 @@ const robots = entry.data.robots || "index,follow";
 ---
 
 <Layout title={title} description={description} robots={robots}>
-    <Content components={{ ButtonLink, Images, ArticleLayout, PostLayout, Card1 }} />
+    <Content components={{ ButtonLink, Images, ArticleLayout, PostLayout, Card1, Card2 }} />
 </Layout>

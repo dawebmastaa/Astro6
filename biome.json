@@ -16,6 +16,11 @@
     "indentWidth": 2,
     "lineEnding": "lf"
   },
+  "css": {
+    "parser": {
+      "tailwindDirectives": true
+    }
+  },
   "linter": {
     "rules": {
       "a11y": {
@@ -107,8 +112,7 @@
         "useGetterReturn": "error"
       },
       "nursery": {
-        "useExplicitType": "warn",
-        "useNamingConvention": "warn"
+        "useExplicitType": "warn"
       }
     }
   },
