@@ -1,0 +1,54 @@
+---
+title: "Do I Even Need A Web Developer For My Business?"
+description: "Think you know enough to manage your own site. Learn the minimum you should know to take the position. Or maybe your business doesn't even need one at all...?"
+robots: index, follow
+draft: true
+excerpt: "Think you know enough to manage your own site. Learn the minimum you should know to take the position. Or maybe your business doesn't even need one at all...?"
+publishDate: 2026-01-01
+updateDate: 2026-04-27
+author: "Mike Alberts"
+heroImage: "img/hero/18.jpg"
+imageAlt: ""
+headingText: "Do I Even Need A Web Developer"
+headingText2: "For My Business?"
+footerText: "🚀"
+category: ""
+featured: false
+featuredImage: "img/articles/5fNmWej4tAA.jpg"
+secondImage: "img/articles/sm-biz.jpg"
+articleHeading: "Article Heading"
+---
+
+import ButtonLink from "@/components/ui/ButtonLink.astro";
+import Card1 from "@/components/blocks/cards/Card1.astro";
+
+<ArticleLayout ButtonLink={ButtonLink} Images={Images} Card1={Card1} HeroImage={frontmatter.heroImage} imageAlt={frontmatter.imageAlt} articleHeading={frontmatter.articleHeading} headingText={frontmatter.headingText} headingText2={frontmatter.headingText2} excerpt={frontmatter.excerpt}>
+    Some content goes here
+    ### A Heading:
+    some content goes here
+    <Images
+        srcPath={frontmatter.featuredImage}
+        alt={frontmatter.imageAlt}
+        component="picture"
+        formats={['avif', 'webp']}
+        sizes="(max-width: 768px) 100vw, 1200px"
+        widths={[400, 800, 1200]}
+        className="w-128 mx-16 p-0 float-right rounded-lg shadow-xl/30 border border-primary-400"
+        loading="eager"
+        fetchpriority="high"
+    />
+    ### Another Heaing:
+    And some more content goes here.
+
+    Some content goes here
+    ### A Heading:
+    some content goes here
+
+    Some content goes here
+    ### A Heading:
+    some content goes here
+
+    Some content goes here
+    ### A Heading:
+    some content goes here
+</ArticleLayout>

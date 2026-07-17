@@ -1,0 +1,61 @@
+---
+title: "The Skills Gap in Modern Web Development"
+description: "Young web developers are not acquiring the skills needed to be competent at their job."
+robots: index, follow
+draft: false
+excerpt: "Today's young web developers are not acquiring the fundamental skills needed to be competent at their job. It's time to go back to basics."
+publishDate: 2026-02-11
+updateDate: 2026-03-27
+author: "Mike Alberts"
+heroImage: "img/hero/5.jpg"
+imageAlt: ""
+headingText: "The Skills Gap"
+headingText2: "in Modern Web Development"
+footerText: "🚀"
+category: ""
+featured: false
+featuredImage: "img/articles/skills-gap.png"
+articleHeading: "A Call for Fundamental Knowledge Over Frameworks"
+---
+
+import ButtonLink from "@/components/ui/ButtonLink.astro";
+import Card1 from "@/components/blocks/cards/Card1.astro";
+
+<ArticleLayout ButtonLink={ButtonLink} Images={Images} Card1={Card1} HeroImage={frontmatter.heroImage} imageAlt={frontmatter.imageAlt} articleHeading={frontmatter.articleHeading} headingText={frontmatter.headingText} headingText2={frontmatter.headingText2} excerpt={frontmatter.excerpt}>
+    ### Introduction
+    The modern web development landscape is often dominated by an ever-evolving array of frameworks and tools. However, this rapid progression has led to a concerning trend: many contemporary web developers lack essential skills that are critical for actually running a website. While the industry focuses heavily on adopting the latest technologies, foundational knowledge—such as HTML, CSS, and basic server management—has taken a backseat. This article explores how this skills gap emerged, tracing its roots to the early days of content management systems like WordPress, which popularized website creation without necessitating deep technical understanding.
+    ### The Rise of WordPress and Its Impact on Development Skills
+    In the mid-2000s, WordPress emerged as a revolutionary platform that democratized website creation. With its user-friendly interface and customizable themes, even those with minimal technical expertise could launch their own websites. As WordPress became the standard for both bloggers and businesses alike, it inadvertently set a precedent where development skills were no longer deemed necessary for basic website management.
+    <Images
+        srcPath={frontmatter.featuredImage}
+        alt={frontmatter.imageAlt}
+        component="picture"
+        formats={['avif', 'webp']}
+        sizes="(max-width: 768px) 100vw, 1200px"
+        widths={[400, 800, 1200]}
+        className="w-180 m-12 p-0 float-right rounded-lg shadow-xl/30 border border-primary-400"
+        loading="eager"
+        fetchpriority="high"
+      />
+  This shift had profound implications. As more individuals turned to platforms like WordPress to create their online presence, there was less incentive for developers to master foundational web technologies. Instead of learning how to write clean HTML or effectively style with CSS, many opted to rely on pre-built templates and plugins. Consequently, developers began prioritizing knowledge of specific frameworks over fundamental principles.
+  ### The Framework Obsession
+  Fast forward to today: we find ourselves in an era where frameworks such as React, Vue.js, and Angular dominate the conversation around web development. While these tools offer remarkable capabilities for building complex applications efficiently, they also exacerbate the existing skills gap. New developers often enter the field with a strong grasp of these frameworks but little understanding of what lies beneath them.
+
+  For instance, consider a developer proficient in React who struggles with basic concepts like semantic HTML or responsive design principles. When faced with issues related to browser compatibility or SEO optimization—areas where foundational knowledge is crucial—they may feel ill-equipped to tackle challenges effectively.
+  ### Emphasizing Fundamentals Over Trends
+  To address this growing divide between framework proficiency and fundamental skill sets, it is imperative that educational institutions and training programs place greater emphasis on teaching core principles of web development:
+
+  1. **HTML/CSS Mastery**: A thorough understanding of HTML semantics and CSS layout techniques should be prioritized before diving into JavaScript frameworks.
+
+  2. **Server Management Basics**: Developers should be familiar with server-side concepts such as HTTP requests/responses, file structures, and database interactions.
+
+  3. **Accessibility Standards**: Understanding accessibility (a11y) best practices ensures websites are usable by everyone—a fundamental aspect often overlooked in favor of flashy designs.
+
+  4. **Version Control Systems**: Familiarity with Git can empower developers not only in collaborative environments but also in managing their own projects effectively.
+
+  5. **Problem-Solving Mindset**: Encouraging critical thinking through project-based learning can help bridge gaps when dealing with real-world scenarios outside framework documentation.
+  ## Conclusion
+  As we navigate through an increasingly framework-centric environment in web development, recognizing the importance of fundamental skills cannot be understated. By shifting our focus from merely keeping up with trends to grounding ourselves in core principles—much like the early days before platforms like WordPress took center stage—we can cultivate a new generation of well-rounded developers equipped not just with tools but also with robust problem-solving abilities.
+
+  In conclusion, let us advocate for educational reform that prioritizes foundational skills alongside cutting-edge technology training so that future web developers can confidently run websites—not just rely on frameworks—but understand what makes them tick at their very core.
+</ArticleLayout>
