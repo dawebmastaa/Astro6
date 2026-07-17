@@ -1,0 +1,32 @@
+---
+const { 
+  href,
+  variant = 'primary',
+  size = 'md',
+  fullWidth = false,
+  external = false,
+  mobileHidden = false
+} = Astro.props;
+
+const variants = {
+  primary: 'btn btn-primary',
+  secondary: 'btn btn-secondary',
+  ghost: 'btn btn-ghost',
+  outline: 'btn btn-outline',
+  'white-primary': 'btn btn-white-primary'
+};
+
+const sizes = {
+  sm: 'btn-sm',
+  md: 'btn-md',
+  lg: 'btn-lg'
+};
+
+const classes = [
+  variants[variant],
+  sizes[size],
+  fullWidth ? 'w-full' : '',
+  external ? 'after:content-["_↗"]' : ''
+].filter(Boolean).join(' ');
+---
+<a href={href} class={classes}{...external && { target: "_blank", rel: "noopener noreferrer" }}><slot /></a>

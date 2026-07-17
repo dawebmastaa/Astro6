@@ -1,0 +1,25 @@
+<!-- Card -->
+<div class="flex hover:shadow-md shadow-primary/50 rounded-box">
+    <!-- Image -->
+    <slot name="image"><div class="bg-[url('img/forest.jpg')] border border-primary/20 bg-center rounded-l-box w-30"></div></slot>
+    <!-- Content -->
+    <div class="flex flex-col gap-4 py-6 pl-6 bg-base-200 border border-primary/20 rounded-r-box w-full">
+        <slot name="title"><h1 class="font-bold text-xl">Default Title</h1></slot>
+        <slot name="description"><span class="pr-3">Default description. Lorem ipsum dolor sit amet consectetur adipisicing elit In odit</span></slot>
+        <!-- Stars -->
+        <slot name="rating">
+        <div class="flex gap-2 text-accent py-2">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+        </div>
+        </slot>
+        <!-- Price and Button -->
+        <div class="flex justify-between items-center">
+            <slot name="price"><span class="font-medium text-2xl">$220</span></slot>
+            <a class="btn btn-primary btn-sm mr-4">Add to cart</a>
+        </div>
+    </div>
+</div>

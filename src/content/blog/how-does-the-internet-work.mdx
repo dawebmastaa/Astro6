@@ -1,0 +1,58 @@
+---
+title: "How Does The Internet Actually Work?"
+description: "A quick explanation of how the internet actually works will make the technical feel simpler."
+robots: "index, follow"
+draft: false
+
+excerpt: "A quick explanation of how the internet actually works will make the complicated feel simpler."
+
+publishDate: "2025-12-15"
+updateDate: "2026-04-26"
+
+author: "Mike Alberts"
+
+headingText: "How Does The Internet"
+headingText2: "Actually Work?"
+footerText: ""
+
+heroImage: "img/hero/13.jpg"
+imageAlt: "Learn the basics of how the internet work."
+postHeading: "How The Internet And Websites Work"
+featuredImage: "img/code.jpg"
+
+tags: ["webdev"]
+featured: false
+---
+
+import ButtonLink from "@/components/ui/ButtonLink.astro";
+import Card1 from "@/components/blocks/cards/Card1.astro";
+
+<PostLayout ButtonLink={ButtonLink} Images={Images} Card1={Card1} HeroImage={frontmatter.heroImage} imageAlt={frontmatter.imageAlt} headingText={frontmatter.headingText} headingText2={frontmatter.headingText2} postHeading={frontmatter.postHeading} excerpt={frontmatter.excerpt}>
+The internet is highly technical, but how it works is relatively simple. At its core, the internet is just a really big computer network. A computer network is a set of computers sharing resources located on or provided by network nodes. There are several different types of software or 'protocols' that can be used to create a network, but the internet uses what is known as the TCP/IP protocol. It stands for Transfer Control Protocol/Internet Protocol. For now, we will just be concerned with the Internet Protocol. In layman's terms, it allows connecting a computer to the network by means of an IP address. Every computer on the internet has an IP address and is reachable by its Internet Protocol.
+<div class="lg:inset-y-0">
+<Images
+    srcPath={frontmatter.featuredImage}
+    alt={frontmatter.imageAlt}
+    component="picture"
+    formats={['avif', 'webp']}
+    sizes="(max-width: 768px) 100vw, 1200px"
+    widths={[400, 800, 1200]}
+    className="w-130 m-4 p-0 rounded-lg ring ring-white/30 float-right"
+    loading="eager"
+    fetchpriority="high"
+  />
+</div>
+IP addresses are sets of numbers formatted like so: xxx.xxx.xxx.xxx. You have both external IP addresses and internal IP addresses. External IP addresses are how computers on the internet talk to each other. Internal IP addresses are how computers at the office or in your home talk to each other. During the early days of the internet, this was how many of the 'online services' worked - by connecting people via IP address.
+
+Each IP address has tens of thousands of ports available. Different services are historically available on different ports - 21 is ftp, 22 is ssh, 110 is used for mail, and of course the big one, 80 for http. Port 80 is the port your web browser normally uses to access a web site, or the https port 443.
+
+The advent of the 'World Wide Web' and the real explosion of its adoption was enabled by the creation of the DNS system. The DNS system is made up of many servers that keep track of the relationship between domain names and ip addresses. This is how you can go online and type in walmart.com and not have to remember the IP address for the Walmart website; the DNS servers remember it for you and your computer or phone looks it up for you. Then there are the root DNS servers. Their job is not to keep track of websites and IP addresses, but to keep track of all of the OTHER DNS servers.
+
+So when you have your own domain(s), you have your own IP addresses (generally speaking) that people can come visit, without even having to remember them. They can come check out your company, research your products or services, maybe book an appointment. Heck who knows, maybe even buy something. This is powerful stuff and people have no idea the fantastic tools available now to do it with.
+
+This is one of the big reasons for having your own domain name: Over the course of your online business life, you will probably have several web hosts (meaning different IP ADDRESSES), email providers, Facebook and Instagram (and possibly many other) accounts, and various other services that you may use to create social media and/or other content. If your content always lives under YOUR domain, it's always yours and you will always have access to it. If it only exists on others servers that you can at any time for any reason lose access to, then you not only run the risk, you ultimately almost guarantee that at some point it WILL lose access. This is just the nature of technology and the internet industry in general. Advancements and change happen. The site or app that's all the rage isn't anymore (ask all the MySpace users).
+
+The point is, if you're going to invest time and money into online outreach, it's important to always keep your content under your control, else come the day you are locked out of it.
+
+So pay that $10 per year. It's well worth the small price for what you get. Heck buy 2 or 3.
+</PostLayout>

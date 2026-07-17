@@ -1,0 +1,83 @@
+---
+import { Image, Picture } from 'astro:assets';
+
+interface Props {
+  src?: any;
+  srcPath?: string;
+  alt: string;
+  component?: 'img' | 'picture';
+  loading?: 'lazy' | 'eager';
+  decoding?: 'async' | 'sync' | 'auto';
+  className?: string;
+  fetchpriority?: 'high' | 'low' | 'auto';
+  sizes?: string;
+  widths?: number[];
+  densities?: string[];
+  formats?: ('avif' | 'webp' | 'png' | 'jpg' | 'jpeg')[];
+  aspectRatio?: string | number;
+}
+
+const {
+  src: srcProp,
+  alt,
+  srcPath,
+  component = 'img',
+  loading = 'lazy',
+  decoding = 'async',
+  className = '',
+  fetchpriority = 'auto',
+  sizes = '(max-width: 768px) 100vw, 50vw',
+  widths,
+  densities,
+  formats = ['avif', 'webp'],
+  aspectRatio,
+  ...rest
+} = Astro.props;
+
+// --- NEW FUNCTIONALITY: srcPath FIRST ---
+let finalSrc = null;
+if (srcPath) {
+  const fullImagePath = `/src/assets/${srcPath}`;
+  const imageModules = import.meta.glob('/src/assets/**/*', { eager: true });
+  const importedImage = imageModules[fullImagePath]?.default;
+  if (importedImage) finalSrc = importedImage;
+} else if (srcProp) {
+  finalSrc = srcProp;
+}
+// --- END NEW FUNCTIONALITY ---
+---
+
+{
+  finalSrc ? (
+    component === 'picture' ? (
+      <Picture
+        src={finalSrc}
+        alt={alt}
+        class:list={[className]}
+        loading={loading}
+        decoding={decoding}
+        fetchpriority={fetchpriority}
+        sizes={sizes}
+        widths={widths}
+        densities={densities}
+        formats={formats}
+        {...rest}
+      />
+    ) : (
+      <Image
+        src={finalSrc}
+        class:list={[className]}
+        loading={loading}
+        decoding={decoding}
+        fetchpriority={fetchpriority}
+        sizes={sizes}
+        widths={widths}
+        densities={densities}
+        aspectRatio={aspectRatio}
+        {...rest}
+      />
+    )
+  ) : (
+    <div>Image not available</div>
+  )
+}

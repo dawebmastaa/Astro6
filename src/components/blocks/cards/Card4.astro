@@ -1,0 +1,19 @@
+<!-- Card -->
+<div class="flex flex-col gap-6 bg-base-200 rounded-box p-6 max-w-xl border border-primary/10">
+    <!-- Header -->
+    <div class="flex justify-between items-center">
+        <slot name="header1"><span class="text-sm">Courses and MOOCs</span></slot>
+        <slot name="header2"><span class="badge badge-primary badge-lg">Psychology</span></slot>
+    </div>
+    <!-- Body -->
+    <div class="flex flex-col gap-2">
+        <slot name="heading"><h1 class="font-bold text-xl">A Default Heading</h1></slot>
+        <slot name="content">Default card text.</slot>
+    </div>
+    <!-- Footer -->
+    <div class="flex gap-2">
+        <a href="https://x.com/me" class="btn btn-ghost btn-circle btn-sm text-lg"><i class="fa-brands fa-twitter"></i></a>
+        <a href="https://facebook.com/me" class="btn btn-ghost btn-circle btn-sm text-lg"><i class="fa-brands fa-facebook"></i></a>
+        <a href="/some/other/link" class="btn btn-ghost btn-circle btn-sm text-lg"><i class="fa-solid fa-link"></i></a>
+    </div>
+</div>

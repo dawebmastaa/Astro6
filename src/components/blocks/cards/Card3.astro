@@ -1,0 +1,23 @@
+<!-- Card -->
+<div class="flex flex-col gap-6 bg-base-200 p-4 md:p-6 rounded-box border border-primary/20">
+    <!-- Header -->
+    <div class="flex justify-between items-center">
+        <slot name="date"><span class="text-sm">Default Date</span></slot>
+        <a class="btn btn-sm btn-primary">Design</a>
+    </div>
+    <!-- Body -->
+    <div class="flex flex-col gap-2">
+        <slot name="headline"><a href="/default" class="text-xl font-bold">Headline Text</a></slot>
+        <slot name="text">Default Text</slot>
+    </div>
+    <!-- Footer -->
+    <div class="flex justify-between items-center">
+        <slot name="footer"><a href="/" class="link-accent">Read more</a></slot>
+        <slot name="footer2">
+            <a href="/">
+                <img alt="Profile" src="/img/avatar.png" class="w-8 rounded-full mr-2" />
+                User name
+            </a>
+        </slot>
+    </div>
+</div>

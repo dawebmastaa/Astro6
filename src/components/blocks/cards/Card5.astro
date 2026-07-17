@@ -1,0 +1,26 @@
+<!-- Card -->
+<div class="flex flex-col bg-base-200 rounded-box border border-primary/10">
+    <!-- Image -->
+    <slot name="image"><div class="bg-[url('img/forest.jpg')] bg-center rounded-t-box w-full h-72" title="A title to serve as Alt text goes here"></div></slot>
+
+    <!-- Body-->
+    <div class="flex flex-col gap-6 p-6">
+        <slot name="type"><h3 class="text-accent font-medium">Card Type</h3></slot>
+        <slot name="title"><a class="link link-hover text-xl font-bold">This Is The Default Title From The Component</a></slot>
+        <slot name="content">
+            <span>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Molestie parturient et sem
+            ipsum volutpat vel. Natoque sem et aliquam mauris egestas quam volutpat viverra. In
+            pretium nec senectus erat. Et malesuada lobortis
+            </span>
+        </slot>
+        <div class="flex gap-2 justify-between">
+            <slot name="footer1">
+                <a class="btn btn-ghost"><img alt="Profile" src="img/avatar.png" class="w-8 rounded-full" />
+                <span class="font-medium text-sm text-accent ml-2">User Name</span>
+                </a>
+            </slot>
+            <slot name="date"><span class="text-sm">{new Date().toLocaleDateString()}</span></slot>
+        </div>
+    </div>
+</div>

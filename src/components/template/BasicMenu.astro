@@ -1,0 +1,279 @@
+---
+const currentPath = Astro.url.pathname;
+
+// Menu configuration
+const menuConfig = [
+  { 
+    type: 'link',
+    href: '/', 
+    label: 'Home' 
+  },
+  { 
+    type: 'link',
+    href: '/about/', 
+    label: 'About' 
+  },
+  { 
+    type: 'dropdown',
+    label: 'Services',
+    dropdownId: 'services',
+    items: [
+      { href: '/services/consultations/', label: 'Consultations' },
+      { href: '/services/wordpress/', label: 'Wordpress' },
+      { href: '/services/static-sites/', label: 'Static Sites' },
+      { href: '/services/headless-ecommerce/', label: 'Headless eCommerce' },
+      { href: '/services/other-cms/', label: 'Other CMS' },
+    ]
+  },
+  { 
+    type: 'link',
+    href: '/blog/', 
+    label: 'Blog' 
+  },
+  { 
+    type: 'link',
+    href: '/articles/', 
+    label: 'Articles' 
+  },
+  { 
+    type: 'link',
+    href: '/contact/', 
+    label: 'Contact' 
+  },
+];
+
+// Helper functions
+function isActive(href) {
+  const normalizedCurrent = currentPath.replace(/\/$/, '');
+  const normalizedHref = href.replace(/\/$/, '');
+  return normalizedCurrent === normalizedHref;
+}
+
+function isDropdownActive(items) {
+  return items.some(item => isActive(item.href));
+}
+---
+<!-- Mobile Menu Button -->
+<button id="mobile-menu-toggle" class="lg:hidden" aria-expanded="false">
+  <span class="sr-only">Open menu</span>
+  <svg id="mobile-menu-icon" class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+    <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path>
+  </svg>
+</button>
+
+<!-- Menu Container -->
+<div id="menu-container" class="hidden lg:flex">
+  <ul class="flex flex-col lg:flex-row">
+    {menuConfig.map((item, index) => {
+      if (item.type === 'link') {
+        const active = isActive(item.href);
+        return `
+          <li>
+            <a href="${item.href}" class="${active ? 'active' : ''}" ${active ? 'aria-current="page"' : ''}>
+              ${item.label}
+            </a>
+          </li>
+        `;
+      }
+      
+      if (item.type === 'dropdown') {
+        const active = isDropdownActive(item.items);
+        return `
+          <li class="dropdown-container">
+            <!-- Desktop Dropdown Trigger -->
+            <button 
+              class="dropdown-toggle lg:inline" 
+              data-dropdown-id="${item.dropdownId}"
+              aria-expanded="false"
+            >
+              ${item.label}
+              <svg class="dropdown-icon" width="16" height="16" viewBox="0 0 20 20">
+                <path fill="currentColor" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/>
+              </svg>
+            </button>
+            
+            <!-- Mobile Dropdown Trigger -->
+            <button 
+              class="dropdown-toggle-mobile lg:hidden" 
+              data-dropdown-id="${item.dropdownId}"
+              aria-expanded="false"
+            >
+              ${item.label}
+              <svg class="dropdown-icon" width="16" height="16" viewBox="0 0 20 20">
+                <path fill="currentColor" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/>
+              </svg>
+            </button>
+            
+            <!-- Desktop Dropdown Menu -->
+            <div id="desktop-${item.dropdownId}" class="dropdown-menu hidden">
+              ${item.items.map(subItem => {
+                const subActive = isActive(subItem.href);
+                return `
+                  <a href="${subItem.href}" class="${subActive ? 'active' : ''}" ${subActive ? 'aria-current="page"' : ''}>
+                    ${subItem.label}
+                  </a>
+                `;
+              }).join('')}
+            </div>
+            
+            <!-- Mobile Dropdown Menu (Inline) -->
+            <div id="mobile-${item.dropdownId}" class="dropdown-menu-mobile hidden">
+              ${item.items.map(subItem => {
+                const subActive = isActive(subItem.href);
+                return `
+                  <a href="${subItem.href}" class="${subActive ? 'active' : ''}" ${subActive ? 'aria-current="page"' : ''}>
+                    ${subItem.label}
+                  </a>
+                `;
+              }).join('')}
+            </div>
+          </li>
+        `;
+      }
+    }).join('')}
+  </ul>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Mobile menu toggle
+  const mobileToggle = document.getElementById('mobile-menu-toggle');
+  const menuContainer = document.getElementById('menu-container');
+  const mobileIcon = document.getElementById('mobile-menu-icon');
+  
+  if (mobileToggle && menuContainer) {
+    mobileToggle.addEventListener('click', function() {
+      const isExpanded = this.getAttribute('aria-expanded') === 'true';
+      this.setAttribute('aria-expanded', !isExpanded);
+      menuContainer.classList.toggle('hidden');
+      
+      // Close all dropdowns when toggling mobile menu
+      document.querySelectorAll('.dropdown-menu-mobile').forEach(dropdown => {
+        dropdown.classList.add('hidden');
+      });
+      document.querySelectorAll('.dropdown-toggle-mobile').forEach(button => {
+        button.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+  
+  // Dropdown functionality
+  function setupDropdown(triggerClass, dropdownClass, isMobile = false) {
+    document.querySelectorAll(triggerClass).forEach(trigger => {
+      const dropdownId = trigger.getAttribute('data-dropdown-id');
+      const dropdown = document.getElementById(`${isMobile ? 'mobile' : 'desktop'}-${dropdownId}`);
+      
+      if (!dropdown) return;
+      
+      trigger.addEventListener('click', function(e) {
+        e.stopPropagation();
+        
+        // Close other dropdowns if mobile
+        if (isMobile) {
+          document.querySelectorAll(dropdownClass).forEach(otherDropdown => {
+            if (otherDropdown !== dropdown) {
+              otherDropdown.classList.add('hidden');
+            }
+          });
+          document.querySelectorAll(triggerClass).forEach(otherButton => {
+            if (otherButton !== trigger) {
+              otherButton.setAttribute('aria-expanded', 'false');
+            }
+          });
+        }
+        
+        // Toggle current dropdown
+        dropdown.classList.toggle('hidden');
+        this.setAttribute('aria-expanded', dropdown.classList.contains('hidden') ? 'false' : 'true');
+      });
+    });
+  }
+  
+  // Setup desktop dropdowns
+  setupDropdown('.dropdown-toggle', '.dropdown-menu', false);
+  
+  // Setup mobile dropdowns
+  setupDropdown('.dropdown-toggle-mobile', '.dropdown-menu-mobile', true);
+  
+  // Close dropdowns when clicking outside
+  document.addEventListener('click', function(e) {
+    // Desktop dropdowns
+    document.querySelectorAll('.dropdown-menu').forEach(dropdown => {
+      if (!dropdown.contains(e.target)) {
+        const trigger = document.querySelector(`.dropdown-toggle[data-dropdown-id="${dropdown.id.replace('desktop-', '')}"]`);
+        if (trigger && !trigger.contains(e.target)) {
+          dropdown.classList.add('hidden');
+          trigger.setAttribute('aria-expanded', 'false');
+        }
+      }
+    });
+    
+    // Mobile dropdowns (only when menu is open)
+    if (!menuContainer.classList.contains('hidden')) {
+      document.querySelectorAll('.dropdown-menu-mobile').forEach(dropdown => {
+        if (!dropdown.contains(e.target)) {
+          const trigger = document.querySelector(`.dropdown-toggle-mobile[data-dropdown-id="${dropdown.id.replace('mobile-', '')}"]`);
+          if (trigger && !trigger.contains(e.target)) {
+            dropdown.classList.add('hidden');
+            trigger.setAttribute('aria-expanded', 'false');
+          }
+        }
+      });
+    }
+  });
+  
+  // Close dropdowns on escape key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      document.querySelectorAll('.dropdown-menu, .dropdown-menu-mobile').forEach(dropdown => {
+        dropdown.classList.add('hidden');
+      });
+      document.querySelectorAll('.dropdown-toggle, .dropdown-toggle-mobile').forEach(button => {
+        button.setAttribute('aria-expanded', 'false');
+      });
+    }
+  });
+});
+</script>
+
+<style>
+/* Basic styling for demonstration */
+.dropdown-container {
+  position: relative;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.375rem;
+  min-width: 200px;
+  z-index: 50;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-menu-mobile {
+  padding-left: 1.5rem;
+}
+
+.dropdown-toggle, .dropdown-toggle-mobile {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.dropdown-icon {
+  transition: transform 0.2s;
+}
+
+button[aria-expanded="true"] .dropdown-icon {
+  transform: rotate(180deg);
+}
+
+.active {
+  font-weight: bold;
+  color: #7c3aed; /* Example purple color */
+}
+</style>

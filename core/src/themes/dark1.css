@@ -1,0 +1,163 @@
+[data-theme="dark"] {
+  /* ===== OPTIMIZED NEUTRAL SCALE (corrected) ===== */
+  --neutral-0: oklch(18% 0.035 230);     /* Darkest - background */
+  --neutral-100: oklch(24% 0.035 230);   /* Slightly lighter dark */
+  --neutral-200: oklch(30% 0.035 230);   /* Medium-dark */
+  --neutral-300: oklch(38% 0.035 230);   /* Light-dark */
+  --neutral-400: oklch(46% 0.035 230);   /* Medium-light dark */
+  --neutral-500: oklch(56% 0.032 230);   /* Light */
+  --neutral-600: oklch(66% 0.03 230);    /* Lighter */
+  --neutral-700: oklch(76% 0.028 230);   /* Very light */
+  --neutral-800: oklch(86% 0.026 230);   /* Near-white */
+  --neutral-900: oklch(96% 0.024 230);   /* White - text */
+
+  /* ===== OPTIMIZED PRIMARY SCALE (dark mode adjusted) ===== */
+  /* Lighter, less saturated, better for dark backgrounds */
+  --primary-50: oklch(98% 0.04 320);     /* Very light tint */
+  --primary-100: oklch(95% 0.07 320);    /* Light tint */
+  --primary-200: oklch(90% 0.11 320);    /* Light */
+  --primary-300: oklch(85% 0.14 320);    /* Medium-light */
+  --primary-400: oklch(80% 0.16 320);    /* Medium */
+  --primary-500: oklch(75% 0.18 320);    /* Main - optimized for dark mode */
+  --primary-600: oklch(70% 0.16 320);    /* Medium-dark */
+  --primary-700: oklch(65% 0.14 320);    /* Dark */
+  --primary-800: oklch(55% 0.12 320);    /* Very dark */
+  --primary-900: oklch(45% 0.10 320);    /* Deep dark */
+  --primary-950: oklch(35% 0.08 320);    /* Deepest dark */
+
+  /* ===== OPTIMIZED SECONDARY SCALE (blue, dark mode) ===== */
+  --secondary-50: oklch(98% 0.04 240);
+  --secondary-100: oklch(95% 0.07 240);
+  --secondary-200: oklch(90% 0.11 240);
+  --secondary-300: oklch(85% 0.14 240);
+  --secondary-400: oklch(80% 0.16 240);
+  --secondary-500: oklch(75% 0.18 240);
+  --secondary-600: oklch(70% 0.16 240);
+  --secondary-700: oklch(65% 0.14 240);
+  --secondary-800: oklch(55% 0.12 240);
+  --secondary-900: oklch(45% 0.10 240);
+  --secondary-950: oklch(35% 0.08 240);
+
+  /* ===== OPTIMIZED ACCENT SCALE (orange, dark mode) ===== */
+  --accent-50: oklch(98% 0.04 60);
+  --accent-100: oklch(95% 0.07 60);
+  --accent-200: oklch(90% 0.11 60);
+  --accent-300: oklch(85% 0.14 60);
+  --accent-400: oklch(80% 0.16 60);
+  --accent-500: oklch(75% 0.18 60);
+  --accent-600: oklch(70% 0.16 60);
+  --accent-700: oklch(65% 0.14 60);
+  --accent-800: oklch(55% 0.12 60);
+  --accent-900: oklch(45% 0.10 60);
+  --accent-950: oklch(35% 0.08 60);
+
+  /* ===== OPTIMIZED INFO SCALE (cyan, dark mode) ===== */
+  --color-info-50: oklch(98% 0.04 200);
+  --color-info-100: oklch(95% 0.07 200);
+  --color-info-200: oklch(90% 0.11 200);
+  --color-info-300: oklch(85% 0.14 200);
+  --color-info-400: oklch(80% 0.16 200);
+  --color-info-500: oklch(75% 0.18 200);
+  --color-info-600: oklch(70% 0.16 200);
+  --color-info-700: oklch(65% 0.14 200);
+  --color-info-800: oklch(55% 0.12 200);
+  --color-info-900: oklch(45% 0.10 200);
+
+  /* ===== OPTIMIZED SUCCESS SCALE (green, dark mode) ===== */
+  --color-success-50: oklch(98% 0.04 150);
+  --color-success-100: oklch(95% 0.07 150);
+  --color-success-200: oklch(90% 0.11 150);
+  --color-success-300: oklch(85% 0.14 150);
+  --color-success-400: oklch(80% 0.16 150);
+  --color-success-500: oklch(75% 0.18 150);
+  --color-success-600: oklch(70% 0.16 150);
+  --color-success-700: oklch(65% 0.14 150);
+  --color-success-800: oklch(55% 0.12 150);
+  --color-success-900: oklch(45% 0.10 150);
+
+  /* ===== OPTIMIZED WARNING SCALE (yellow, dark mode) ===== */
+  --color-warning-50: oklch(98% 0.04 90);
+  --color-warning-100: oklch(95% 0.07 90);
+  --color-warning-200: oklch(90% 0.11 90);
+  --color-warning-300: oklch(85% 0.14 90);
+  --color-warning-400: oklch(80% 0.16 90);
+  --color-warning-500: oklch(75% 0.18 90);
+  --color-warning-600: oklch(70% 0.16 90);
+  --color-warning-700: oklch(65% 0.14 90);
+  --color-warning-800: oklch(55% 0.12 90);
+  --color-warning-900: oklch(45% 0.10 90);
+
+  /* ===== OPTIMIZED ERROR SCALE (red, dark mode) ===== */
+  --color-error-50: oklch(98% 0.04 30);
+  --color-error-100: oklch(95% 0.07 30);
+  --color-error-200: oklch(90% 0.11 30);
+  --color-error-300: oklch(85% 0.14 30);
+  --color-error-400: oklch(80% 0.16 30);
+  --color-error-500: oklch(75% 0.18 30);
+  --color-error-600: oklch(70% 0.16 30);
+  --color-error-700: oklch(65% 0.14 30);
+  --color-error-800: oklch(55% 0.12 30);
+  --color-error-900: oklch(45% 0.10 30);
+
+  /* ===== SEMANTIC MAPPING (optimized for dark mode) ===== */
+  --color-bg: var(--neutral-0);               /* Dark background */
+  --color-text: var(--neutral-900);           /* White text */
+  --color-text-muted: var(--neutral-500);     /* Medium-light text */
+  --color-border: var(--neutral-300);         /* Subtle dark border */
+  --color-bg-muted: var(--neutral-100);       /* Slightly lighter dark */
+  --color-primary: var(--primary-500);        /* Optimized for dark mode */
+  --color-secondary: var(--secondary-500);    /* Optimized for dark mode */
+  --color-accent: var(--accent-500);          /* Optimized for dark mode */
+  --color-neutral: var(--neutral-500);        /* Medium-light gray */
+  --color-info: var(--color-info-500);        /* Optimized for dark mode */
+  --color-success: var(--color-success-500);  /* Optimized for dark mode */
+  --color-warning: var(--color-warning-500);  /* Optimized for dark mode */
+  --color-error: var(--color-error-500);      /* Optimized for dark mode */
+  --color-primary-hover: var(--primary-400);  /* Lighter on hover */
+
+  /* ===== OPTIMIZED BUTTON VARIABLES (dark mode) ===== */
+  --color-btn-primary-bg: var(--primary-600);
+  --color-btn-primary-text: var(--neutral-900);
+  --color-btn-primary-hover: var(--primary-500);
+
+  --color-btn-secondary-bg: var(--secondary-600);
+  --color-btn-secondary-text: var(--neutral-900);
+  --color-btn-secondary-border: var(--secondary-500);
+  --color-btn-secondary-hover: var(--secondary-500);
+
+  /* Outline button theme variables */
+  --color-btn-outline-bg: transparent;
+  --color-btn-outline-text: var(--color-text);
+  --color-btn-outline-border: var(--color-border);
+  --color-btn-outline-hover: var(--color-bg-muted);
+
+  /* Ghost button theme variables */
+  --color-btn-ghost-bg: transparent;
+  --color-btn-ghost-text: var(--color-text);
+  --color-btn-ghost-border: transparent;
+  --color-btn-ghost-hover: var(--color-bg-muted);
+
+  /* White-primary button theme variables (in dark mode, "white" = neutral-900) */
+  --color-btn-white-primary-bg: var(--neutral-900);
+  --color-btn-white-primary-text: var(--color-primary);
+  --color-btn-white-primary-border: var(--neutral-900);
+  --color-btn-white-primary-hover: var(--neutral-800);
+
+  /* ===== CARD VARIABLES (dark mode) ===== */
+  --color-card-bg: var(--neutral-100);
+  --color-card-border: var(--neutral-300);
+
+  /* ===== OPTIMIZED SHADOWS (dark mode) ===== */
+  --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 8px -2px rgba(0, 0, 0, 0.6);
+  --shadow-lg: 0 12px 24px -4px rgba(0, 0, 0, 0.7);
+  --shadow-xl: 0 24px 48px -8px rgba(0, 0, 0, 0.75);
+
+  /* ===== DARK MODE ENHANCEMENTS ===== */
+  /* Better focus states for dark mode */
+  --focus-ring: 0 0 0 3px var(--primary-300);
+
+  /* Subtle glow effects for better depth perception */
+  --glow-sm: 0 0 20px rgba(var(--primary-500), 0.15);
+  --glow-md: 0 0 40px rgba(var(--primary-500), 0.2);
+}

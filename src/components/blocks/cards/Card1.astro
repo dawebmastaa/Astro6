@@ -1,0 +1,28 @@
+---
+const { className = "", variant = "default" } = Astro.props;
+
+const variants = {
+	default: "bg-base-100 border border-base-300 rounded-xl",
+	bordered: "bg-base-300 border border-primary-500 rounded-lg",
+	shadow: "bg-base-100 rounded-lg shadow-md",
+	flat: "bg-base-100 rounded-lg",
+	gradient: "bg-gradient-to-br rounded-lg",
+	gradient2: "bg-gradient-to-bl rounded-lg",
+  dark: "bg-primary-900 rounded-lg shadow-md",
+};
+---
+
+<div class={`p-8 ${variants[variant]} ${className}`}>
+  <!-- Header slot -->
+  <div class="mb-6">
+    <slot name="header" />
+  </div>
+  <!-- Body slot (default) -->
+  <div>
+    <slot />
+  </div>
+  <!-- Footer slot -->
+  <div class="mt-4 pt-4 border-t border-base-300">
+    <slot name="footer" />
+  </div>
+</div>

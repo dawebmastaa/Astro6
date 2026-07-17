@@ -1,0 +1,35 @@
+---
+const {ButtonLink, Images, Img, Alt, HeadingText, FooterText, ctaLink, ctaText, cta2Link, cta2Text} = Astro.props;
+---
+    <section class="bg-primary-600 relative overflow-hidden">
+        <div class="mx-auto max-w-7xl">
+          <div class="py-12 bg-gradient-to-r lg:max-w-2xl lg:w-full relative z-10">
+            <div class="mx-auto max-w-7xl">
+              <div class="text-center px-2 lg:text-left lg:pl-4">
+                <h1 class="text-3xl tracking-tight font-extrabold text-white sm:text-4xl">
+                  <span>Modern Solutions for</span>
+                  <span class="text-primary-200 block">Your Business</span>
+                </h1>
+                <p class="mt-1 text-base text-white sm:text-lg sm:max-w-xl mx-auto md:text-xl lg:mx-0">Deploy unlimited static sites with 95+/100 Lighthouse scores. Better performance, better rankings. Zero maintenance, unhackable, hosted for pennies.</p>
+                <div class="mt-5 sm:flex sm:justify-center lg:justify-start gap-x-2">
+                  <ButtonLink href="/contact" variant="primary" size="md">Get Started</ButtonLink>
+                  <ButtonLink href="/contact" variant="white-primary" size="md">Learn More</ButtonLink>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="lg:absolute lg:inset-y-0 lg:right-0 lg:w-2/3">
+          <Images
+              srcPath="img/hero/heroHome.webp"
+              alt="A modern business dashboard showing analytics, charts, and metrics with a sleek UI design"
+              component="picture"
+              formats={['avif', 'webp']}
+              sizes="(max-width: 768px) 100vw, 1200px"
+              widths={[400, 800, 1200]}
+              className="object-cover h-56 w-full sm:h-72 md:h-96 lg:w-full lg:h-full"
+              loading="eager"
+              fetchpriority="high"
+            />
+        </div>
+      </section>

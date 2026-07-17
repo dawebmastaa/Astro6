@@ -1,0 +1,81 @@
+<div id="contact-modal" class="hidden fixed inset-0 z-50 overflow-y-auto" aria-labelledby="modal-title" aria-describedby="modal-description" aria-hidden="true" role="dialog">
+    <!-- Backdrop -->
+    <div class="fixed inset-0 bg-base-900 bg-opacity-75 transition-opacity" aria-hidden="true"></div>
+     <!-- Modal container -->
+    <div class="flex items-center justify-center p-4">
+        <!-- Modal content -->
+        <div class="relative bg-base-100 rounded-lg shadow-lg/30 max-w-2xl w-full overflow-hidden border border-base-200">
+            <!-- Header -->
+            <div class="flex items-center justify-between p-6 border-b border-base-300 bg-base-200">
+                <div>
+                    <h3 id="modal-title" class="text-xl font-semibold">Send Us a Message</h3>
+                    <p id="modal-description" class="text-sm mt-1">We typically respond within 2-4 hours on business days </p>
+                </div>
+                <button  id="close-modal" type="button" class="rounded-lg p-2 btn-primary" aria-label="Close modal">
+                  <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                  </svg>
+                </button>
+            </div>            
+            <!-- Body - Tally Form -->
+            <div class="h-105 py-4 bg-primary-900">
+             <iframe data-tally-src="https://tally.so/embed/mDzNLj?alignLeft=0&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+             width="100%" frameborder="0" marginwidth="0" title="Contact form" class="w-full border-0 h-100">
+             </iframe>
+             <script>
+               var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}
+            </script>
+            </div>            
+            <!-- Footer -->
+            <div class="p-6 border-t border-base-300 bg-base-200"><p class="text-sm text-base-600">Prefer email? Contact us at <strong>hello@ruletheweb.us</strong></p></div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const modal = document.getElementById('contact-modal');
+        const closeBtn = document.getElementById('close-modal');
+        const backdrop = modal?.querySelector('[aria-hidden="true"]');
+        
+        function closeModal() {
+            if (modal) {
+                modal.classList.add('hidden');
+                modal.setAttribute('aria-hidden', 'true');
+                document.body.classList.remove('overflow-hidden');
+            }
+        }       
+        // Close button
+        if (closeBtn) {
+            closeBtn.addEventListener('click', closeModal);
+        }        
+        // Backdrop click
+        if (backdrop) {
+            backdrop.addEventListener('click', closeModal);
+        }
+    });
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+    // Contact modal button
+        const contactBtn = document.getElementById('contact-modal-btn');
+        const contactModal = document.getElementById('contact-modal');
+
+        if (contactBtn && contactModal) {
+                contactBtn.addEventListener('click', function() {
+                contactModal.classList.remove('hidden');
+                contactModal.setAttribute('aria-hidden', 'false');
+                document.body.classList.add('overflow-hidden');
+            });
+        }
+        // Close modal on Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && contactModal && !contactModal.classList.contains('hidden')) {
+                contactModal.classList.add('hidden');
+                contactModal.setAttribute('aria-hidden', 'true');
+                document.body.classList.remove('overflow-hidden');
+            }
+        });
+    });
+</script>

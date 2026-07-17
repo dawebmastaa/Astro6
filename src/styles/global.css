@@ -1,0 +1,57 @@
+/* Disable Tailwind's system preference detection */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+/* Tailwind */
+@import 'tailwindcss';
+@plugin '@tailwindcss/typography';
+
+/* Our design system */
+@import '../../core/src/variables.css';
+@import '../../core/src/components.css';
+@import '../../core/src/themes/light.css';
+@import '../../core/src/themes/dark.css';
+
+body {
+  /* this is needed to override user light/dark selection */
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  transition: background-color 0.3s, color 0.3s;
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--font-sans);
+}
+
+
+@view-transition {
+  navigation: auto;
+}
+
+@keyframes move-out {
+  from {
+    transform: translateY(0%);
+  }
+  to {
+    transform: translateY(-100%);
+  }
+}
+
+@keyframes move-in {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0%);
+  }
+}
+
+::view-transition-old(root) {
+  animation: 0.4s ease-in both move-out;
+}
+
+::view-transition-new(root) {
+  animation: 0.4s ease-in both move-in;
+}
+
+/* Dark mode support
+@custom-variant dark (&:where(.dark, .dark *));
+*/

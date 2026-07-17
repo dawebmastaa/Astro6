@@ -1,0 +1,55 @@
+<section aria-hidden="true" class="carousel w-full grid" role="region" aria-label="Rotating image carousel">
+  <div class="carousel-item col-start-1 row-start-1">
+    <img
+      src="/img/carousels/1.webp"
+      alt=""
+      class="w-full h-auto opacity-100 animate-[carouselFade_20s_infinite]"
+      loading="eager"
+      decoding="async"
+    />
+  </div>
+  <div class="carousel-item col-start-1 row-start-1">
+    <img
+      src="/img/carousels/2.webp"
+      alt=""
+      class="w-full h-auto opacity-0 animate-[carouselFade_20s_infinite_5s]"
+      loading="lazy"
+      decoding="async"
+    />
+  </div>
+  <div class="carousel-item col-start-1 row-start-1">
+    <img
+      src="/img/carousels/3.webp"
+      alt=""
+      class="w-full h-auto opacity-0 animate-[carouselFade_20s_infinite_10s]"
+      loading="lazy"
+      decoding="async"
+    />
+  </div>
+  <div class="carousel-item col-start-1 row-start-1">
+    <img
+      src="/img/carousels/6.webp"
+      alt=""
+      class="w-full h-auto opacity-0 animate-[carouselFade_20s_infinite_15s]"
+      loading="lazy"
+      decoding="async"
+    />
+  </div>
+</section>
+
+<style>
+  @keyframes carouselFade {
+    0%, 20% { opacity: 0; }
+    5%, 15% { opacity: 1; }
+    25%, 100% { opacity: 0; }
+  }
+
+  .carousel {
+    display: grid;
+  }
+
+  .carousel-item {
+    grid-column: 1;
+    grid-row: 1;
+  }
+</style>

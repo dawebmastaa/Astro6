@@ -1,0 +1,49 @@
+---
+title: "The First Ever Article From Rule The Web"
+description: "Stop overpaying for slow, hackable WordPress sites. Get 100/100 Lighthouse scores for $20/month with our modern static site stack. Free blueprint download."
+robots: "index, follow"
+draft: false
+
+excerpt: "This is the fucking FIRST ARTICLE man!!! We be managing shit like a boss now!"
+
+publishDate: "2024-01-01"
+updateDate: "2026-04-25"
+
+author: "Mike Alberts"
+
+heroImage: "img/hero/13.jpg"
+imageAlt: "A proper alt text we will need at some point."
+articleHeading: "The First Article"
+headingText: "Just Build It"
+headingText2: "Great Tools Available"
+footerText: "🚀 47 agencies have increased margins using our infrastructure"
+
+category: ""
+featured: false
+
+featuredImage: "img/cosmic-sphere.png"
+---
+
+import ButtonLink from "@/components/ui/ButtonLink.astro";
+import Card1 from "@/components/blocks/cards/Card1.astro";
+
+<ArticleLayout ButtonLink={ButtonLink} Images={Images} Card1={Card1} HeroImage={frontmatter.heroImage} imageAlt={frontmatter.imageAlt} articleHeading={frontmatter.articleHeading} headingText={frontmatter.headingText} headingText2={frontmatter.headingText2} excerpt={frontmatter.excerpt}>
+<div class="lg:inset-y-0">
+We need to have some copy in there for the time being so that the layout doesn't blow up. We need to have some copy in there for the time being so that the layout doesn't blow up. We need to have some copy in there for the time being so that the layout doesn't blow up. We need to have some copy in there for the time being so that the layout doesn't blow up.
+<Images
+    srcPath={frontmatter.featuredImage}
+    alt={frontmatter.imageAlt}
+    component="picture"
+    formats={['avif', 'webp']}
+    sizes="(max-width: 768px) 100vw, 1200px"
+    widths={[400, 800, 1200]}
+    className="w-120 m-0 p-0 float-right"
+    loading="eager"
+    fetchpriority="high"
+/>
+</div>
+
+We need to have some copy in there for the time being so that the layout doesn't blow up. We need to have some copy in there for the time being so that the layout doesn't blow up. We need to have some copy in there for the time being so that the layout doesn't blow up. We need to have some copy in there for the time being so that the layout doesn't blow up.
+
+We need to have some copy in there for the time being so that the layout doesn’t blow up. We need to have some copy in there for the time being so that the layout doesn’t blow up. We need to have some copy in there for the time being so that the layout doesn’t blow up. We need to have some copy in there for the time being so that the layout doesn’t blow up. We need to have some copy in there for the time being so that the layout doesn’t blow up. We need to have some copy in there for the time being so that the layout doesn’t blow up. We need to have some copy in there for the time being so that the layout doesn’t blow up. We need to have some copy in there for the time being so that the layout doesn’t blow up.
+</ArticleLayout>

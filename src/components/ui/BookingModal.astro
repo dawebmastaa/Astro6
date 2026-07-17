@@ -1,0 +1,47 @@
+    <div id="calendar-modal" class="hidden fixed inset-0 z-50 overflow-y-auto bg-base-900 transition-opacity">
+     <div class="flex min-h-full items-center justify-center p-4 bg-opacity-75">
+      <div class="relative bg-primary-900 rounded-lg shadow-lg/30 max-w-4xl w-full max-h-[90vh] overflow-hidden">
+       <div class="flex justify-between items-center p-4 border-b border-neutral-300 bg-base-200">
+        <h3 class="text-xl font-semibold">Schedule a Call</h3>
+        <button id="close-calendar" class="rounded-lg p-2 btn-primary">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+      <div class="p-0">
+        <!-- Cal.com embed -->
+        <iframe src="https://app.cal.com/mike-alberts-b1p5j2/free" class="w-full h-[610px] border-0" title="Schedule a consultation" loading="lazy"></iframe>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Schedule Call Modal/Calendar Integration -->
+    <script is:inline>
+  document.addEventListener('DOMContentLoaded', function() {
+    const openBtn = document.getElementById('open-calendar-btn');
+    const modal = document.getElementById('calendar-modal');
+    const closeBtn = document.getElementById('close-calendar');
+
+    if (openBtn && modal) {
+      openBtn.addEventListener('click', () => {
+        modal.classList.remove('hidden');
+        document.body.classList.add('overflow-hidden');
+      });
+
+      closeBtn.addEventListener('click', () => {
+        modal.classList.add('hidden');
+        document.body.classList.remove('overflow-hidden');
+      });
+
+      // Close when clicking backdrop
+      modal.addEventListener('click', (e) => {
+        if (e.target.classList.contains('bg-opacity-75')) {
+            modal.classList.add('hidden');
+            document.body.classList.remove('overflow-hidden');
+        }
+    });
+  }
+  });
+</script>

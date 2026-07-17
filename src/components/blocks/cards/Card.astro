@@ -1,0 +1,16 @@
+---
+interface Props {
+	title: string;
+	body: string;
+	href: string;
+}
+
+const { href, title, body } = Astro.props;
+---
+
+<li class="link-card flex px-6 py-10 items-center rounded border border-primary/20 bg-base-300">
+	<a href={href} class="hover:link" title={title}>
+		<h2 class="text-xl capitalize mb-4">{title}	<span> &rarr;</span></h2>
+		<p>{body}</p>
+	</a>
+</li>

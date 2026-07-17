@@ -1,0 +1,74 @@
+---
+title: "Rule The Web Blog"
+description: "We post anything web dev for the small business owner who doesn't have a lot of time and doesn't have a lot of money."
+robots: "index, follow"
+draft: false
+
+excerpt: "Modern web development is not hard. It’s just been over-complicated and over-engineered. We’re on a mission to fix that."
+
+publishDate: 2024-01-15
+updateDate: 2026-01-26
+
+author: "Mike Alberts"
+
+headingText: "Blog Postings From Rule The Web."
+headingText2: "Build it Right, Reap the rewards."
+footerText: "🚀 Simplicity, performance, SEO ranking."
+
+heroImage: "img/hero/26.jpg"
+imageAlt: "A modern business dashboard showing analytics, charts, and metrics with a sleek UI design"
+featuredImage: ""
+
+tags: []
+featured: false
+
+ctaText: "Articles"
+ctaLink: "/articles/"
+cta2Text: "Contact Us"
+cta2Link: "/contact"
+
+navOrder: 4
+hideFromNav: false
+---
+import ListContent from "@/components/ui/ListContent.astro";
+
+<section class="bg-primary-600 relative overflow-hidden">
+  <div class="mx-auto max-w-7xl">
+    <div class="py-12 bg-gradient-to-r lg:max-w-2xl lg:w-full relative z-10 text-white">
+      <div class="mx-auto max-w-7xl">
+        <div class="text-center px-2 lg:text-left lg:pl-4">
+          <h1 class="text-3xl tracking-tight font-extrabold text-white sm:text-4xl">
+            <span class="block">{frontmatter.headingText}</span>
+            <span class="text-primary-300 block">{frontmatter.headingText2}</span>
+          </h1>
+          <p class="my-4 text-base sm:text-lg sm:max-w-xl mx-auto md:text-xl lg:mx-0">{frontmatter.excerpt}.</p>
+          <div class="mt-5 sm:flex sm:justify-center lg:justify-start gap-x-2">
+            <ButtonLink href={frontmatter.ctaLink} variant="primary" size="md">{frontmatter.ctaText}</ButtonLink>
+            <ButtonLink href={frontmatter.cta2Link} variant="white-primary" size="md">{frontmatter.cta2Text}</ButtonLink>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="lg:absolute lg:inset-y-0 lg:right-0 lg:w-2/3">
+    <Images
+        srcPath={frontmatter.heroImage}
+        alt={frontmatter.imageAlt}
+        component="picture"
+        formats={['avif', 'webp']}
+        sizes="(max-width: 768px) 100vw, 1200px"
+        widths={[400, 800, 1200]}
+        className="object-cover h-56 w-full sm:h-72 md:h-96 lg:w-full lg:h-full"
+        loading="eager"
+        fetchpriority="high"
+      />
+  </div>
+</section>
+
+<section class="bg-base-100 text-base-900">
+  <div class="max-w-screen-xl px-6 py-4 sm:py-6 md:py-8 xl:py-12 2xl:py-32 mx-auto">
+     <div class="space-y-8 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-12 md:space-y-0">
+     <ListContent collection="blog" />
+     </div>
+  </div>
+</section>

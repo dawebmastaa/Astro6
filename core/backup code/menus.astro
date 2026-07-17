@@ -1,0 +1,630 @@
+---
+const currentPath = Astro.url.pathname;
+
+const menuItems = [
+  { href: '/', label: 'Home' },
+  { href: '/about/', label: 'About' },
+  { href: '/services/', label: 'Services' },
+  { href: '/blog/', label: 'Blog' },
+  { href: '/articles/', label: 'Articles' },
+  { href: '/contact/', label: 'Contact' },
+];
+
+const servicesItems = [
+  { href: '/services/consultations/', label: 'Consultations' },
+  { href: '/services/wordpress/', label: 'Wordpress' },
+  { href: '/services/static-sites/', label: 'Static Sites' },
+  { href: '/services/headless-ecommerce/', label: 'Headless eCommerce' },
+  { href: '/services/other-cms/', label: 'Other CMS' },
+];
+
+function isActive(href) {
+  return currentPath.replace(/\/$/, '') === href.replace(/\/$/, '');
+}
+---
+<header>
+  <nav>
+    <!-- Mobile Toggle -->
+    <button id="menuToggle" class="lg:hidden">☰</button>
+    
+    <!-- Menu -->
+    <div id="mainMenu" class="hidden lg:block">
+      <ul>
+        {menuItems.map(item => {
+          if (item.href === '/services/') {
+            // Services dropdown
+            return `
+              <li class="relative">
+                <button onclick="toggleDropdown('services')">Services ▼</button>
+                <div id="servicesDropdown" class="hidden lg:absolute lg:bg-white lg:shadow">
+                  ${servicesItems.map(sub => `
+                    <a href="${sub.href}">${sub.label}</a>
+                  `).join('')}
+                </div>
+              </li>
+            `;
+          }
+          
+          // Regular link
+          return `
+            <li>
+              <a href="${item.href}" ${isActive(item.href) ? 'class="active"' : ''}>
+                ${item.label}
+              </a>
+            </li>
+          `;
+        })}
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<script>
+// Toggle mobile menu
+document.getElementById('menuToggle')?.addEventListener('click', function() {
+  document.getElementById('mainMenu').classList.toggle('hidden');
+});
+
+// Toggle dropdown
+function toggleDropdown(id) {
+  const dropdown = document.getElementById(id + 'Dropdown');
+  const isMobile = window.innerWidth < 1024;
+  
+  if (isMobile) {
+    // Mobile: simple toggle
+    dropdown.classList.toggle('hidden');
+  } else {
+    // Desktop: show on hover/click, hide when not hovered
+    dropdown.classList.toggle('hidden');
+  }
+}
+
+// Close dropdown when clicking outside (desktop)
+document.addEventListener('click', function(e) {
+  if (window.innerWidth >= 1024) {
+    if (!e.target.closest('.relative')) {
+      document.querySelectorAll('[id$="Dropdown"]').forEach(d => {
+        d.classList.add('hidden');
+      });
+    }
+  }
+});
+</script>
+
+-------------------------
+
+---
+const currentPath = Astro.url.pathname;
+
+const menuItems = [
+  { href: '/', label: 'Home' },
+  { href: '/about/', label: 'About' },
+  { href: '/services/', label: 'Services' },
+  { href: '/blog/', label: 'Blog' },
+  { href: '/articles/', label: 'Articles' },
+  { href: '/contact/', label: 'Contact' },
+];
+
+const servicesItems = [
+  { href: '/services/consultations/', label: 'Consultations' },
+  { href: '/services/wordpress/', label: 'Wordpress' },
+  { href: '/services/static-sites/', label: 'Static Sites' },
+  { href: '/services/headless-ecommerce/', label: 'Headless eCommerce' },
+  { href: '/services/other-cms/', label: 'Other CMS' },
+];
+---
+<header>
+  <nav>
+    <!-- Mobile Toggle -->
+    <button id="menuToggle" class="lg:hidden" onclick="this.nextElementSibling.classList.toggle('hidden')">
+      ☰
+    </button>
+    
+    <!-- Menu -->
+    <div id="mainMenu" class="hidden lg:block">
+      <ul class="lg:flex">
+        {menuItems.map(item => {
+          if (item.href === '/services/') {
+            // Services dropdown - CSS hover on desktop, click on mobile
+            return `
+              <li class="relative group">
+                <button class="lg:cursor-default" onclick="if(window.innerWidth < 1024) this.nextElementSibling.classList.toggle('hidden')">
+                  Services
+                  <span class="lg:hidden">▼</span>
+                </button>
+                <div class="hidden lg:group-hover:block lg:absolute lg:bg-white lg:shadow">
+                  ${servicesItems.map(sub => `
+                    <a href="${sub.href}" class="block">${sub.label}</a>
+                  `).join('')}
+                </div>
+              </li>
+            `;
+          }
+          
+          // Regular link
+          return `<li><a href="${item.href}">${item.label}</a></li>`;
+        })}
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<script>
+// Just the mobile menu toggle - inline onclick handles the rest
+document.getElementById('menuToggle')?.addEventListener('click', function() {
+  this.nextElementSibling.classList.toggle('hidden');
+});
+</script>
+
+--------------------------
+
+---
+const currentPath = Astro.url.pathname;
+
+const menuItems = [
+  { href: '/', label: 'Home' },
+  { href: '/about/', label: 'About' },
+  { href: '/blog/', label: 'Blog' },
+  { href: '/articles/', label: 'Articles' },
+  { href: '/contact/', label: 'Contact' },
+];
+
+const servicesItems = [
+  { href: '/services/consultations/', label: 'Consultations' },
+  { href: '/services/wordpress/', label: 'Wordpress' },
+  { href: '/services/static-sites/', label: 'Static Sites' },
+  { href: '/services/headless-ecommerce/', label: 'Headless eCommerce' },
+  { href: '/services/other-cms/', label: 'Other CMS' },
+];
+---
+<header>
+  <nav>
+    <!-- Mobile Toggle -->
+    <button onclick="this.nextElementSibling.classList.toggle('hidden')" class="lg:hidden">
+      ☰
+    </button>
+    
+    <!-- Menu -->
+    <div class="hidden lg:block">
+      <ul class="lg:flex">
+        <li><a href="/">Home</a></li>
+        <li><a href="/about/">About</a></li>
+        
+        <!-- Services Dropdown - CSS hover only -->
+        <li class="relative group">
+          <span class="lg:cursor-default">Services</span>
+          <div class="hidden lg:group-hover:block absolute bg-white shadow">
+            {servicesItems.map(item => (
+              <a href={item.href} class="block">{item.label}</a>
+            ))}
+          </div>
+        </li>
+        
+        <li><a href="/blog/">Blog</a></li>
+        <li><a href="/articles/">Articles</a></li>
+        <li><a href="/contact/">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+--------------------------
+
+---
+const currentPath = Astro.url.pathname;
+
+const menuItems = [
+  { href: '/', label: 'Home' },
+  { href: '/about/', label: 'About' },
+  { href: '/services/', label: 'Services' },
+  { href: '/blog/', label: 'Blog' },
+  { href: '/articles/', label: 'Articles' },
+  { href: '/contact/', label: 'Contact' },
+];
+
+const servicesItems = [
+  { href: '/services/consultations/', label: 'Consultations' },
+  { href: '/services/wordpress/', label: 'Wordpress' },
+  { href: '/services/static-sites/', label: 'Static Sites' },
+  { href: '/services/headless-ecommerce/', label: 'Headless eCommerce' },
+  { href: '/services/other-cms/', label: 'Other CMS' },
+];
+
+function isActive(href) {
+  return currentPath.replace(/\/$/, '') === href.replace(/\/$/, '');
+}
+---
+<header>
+  <nav>
+    <!-- Mobile Toggle -->
+    <button onclick="this.nextElementSibling.classList.toggle('hidden')" class="lg:hidden">
+      ☰
+    </button>
+    
+    <!-- Menu -->
+    <div class="hidden lg:block">
+      <ul class="lg:flex">
+        {menuItems.map(item => {
+          if (item.href === '/services/') {
+            return `
+              <li class="relative group">
+                <span class="cursor-pointer">${item.label}</span>
+                <div class="hidden lg:group-hover:block absolute">
+                  ${servicesItems.map(subItem => `
+                    <a href="${subItem.href}">${subItem.label}</a>
+                  `).join('')}
+                </div>
+              </li>
+            `;
+          }
+          return `
+            <li>
+              <a href="${item.href}">${item.label}</a>
+            </li>
+          `;
+        })}
+      </ul>
+    </div>
+  </nav>
+</header>
+
+
+const productsItems = [
+  { href: '/products/app/', label: 'App' },
+  { href: '/products/web/', label: 'Web' },
+];
+-----------------------
+
+
+---
+const currentPath = Astro.url.pathname;
+
+const menuItems = [
+  { href: '/', label: 'Home' },
+  { href: '/about/', label: 'About' },
+  { href: '/services/', label: 'Services' },
+  { href: '/blog/', label: 'Blog' },
+  { href: '/articles/', label: 'Articles' },
+  { href: '/contact/', label: 'Contact' },
+];
+
+const servicesItems = [
+  { href: '/services/consultations/', label: 'Consultations' },
+  { href: '/services/wordpress/', label: 'Wordpress' },
+  { href: '/services/static-sites/', label: 'Static Sites' },
+  { href: '/services/headless-ecommerce/', label: 'Headless eCommerce' },
+  { href: '/services/other-cms/', label: 'Other CMS' },
+];
+
+function isActive(href) {
+  return currentPath.replace(/\/$/, '') === href.replace(/\/$/, '');
+}
+---
+<header>
+  <nav>
+    <!-- Mobile Toggle -->
+    <button onclick="this.nextElementSibling.classList.toggle('hidden')" class="lg:hidden">
+      ☰
+    </button>
+    
+    <!-- Menu -->
+    <div class="hidden lg:block">
+      <ul class="lg:flex">
+        {menuItems.map(item => {
+          if (item.href === '/services/') {
+            // Services dropdown
+            return (
+              <li class="relative group">
+                <span class="cursor-pointer">{item.label}</span>
+                <div class="hidden lg:group-hover:block absolute">
+                  {servicesItems.map(subItem => (
+                    <a href={subItem.href}>{subItem.label}</a>
+                  ))}
+                </div>
+              </li>
+            );
+          }
+          // Regular link
+          return (
+            <li>
+              <a href={item.href}>{item.label}</a>
+            </li>
+          );
+        })}
+      </ul>
+    </div>
+  </nav>
+</header>
+
+
+--------------------------
+
+---
+import ButtonLink from '../ui/ButtonLink.astro';
+import ModeSwitch from '../ui/ModeSwitch.astro';
+const sitename = Astro.props;
+const currentPath = Astro.url.pathname;
+
+// ========== CONFIGURATION - JUST EDIT THIS SECTION ==========
+// Define your menu structure
+const menuConfig = [
+  { 
+    type: 'link', 
+    href: '/', 
+    label: 'Home' 
+  },
+  { 
+    type: 'link', 
+    href: '/about/', 
+    label: 'About' 
+  },
+  { 
+    type: 'dropdown',
+    label: 'Services',
+    id: 'services', // ← Unique ID for this dropdown
+    items: [
+      { href: '/services/consultations/', label: 'Consultations' },
+      { href: '/services/wordpress/', label: 'Wordpress' },
+      { href: '/services/static-sites/', label: 'Static Sites' },
+      { href: '/services/headless-ecommerce/', label: 'Headless eCommerce' },
+      { href: '/services/other-cms/', label: 'Other CMS' },
+    ]
+  },
+  { 
+    type: 'link', 
+    href: '/blog/', 
+    label: 'Blog' 
+  },
+  { 
+    type: 'link', 
+    href: '/articles/', 
+    label: 'Articles' 
+  },
+  { 
+    type: 'link', 
+    href: '/contact/', 
+    label: 'Contact' 
+  },
+  // To add another dropdown, just copy the pattern:
+  // { 
+  //   type: 'dropdown',
+  //   label: 'Products',
+  //   id: 'products',
+  //   items: [
+  //     { href: '/products/app/', label: 'App' },
+  //     { href: '/products/web/', label: 'Web' },
+  //   ]
+  // },
+];
+// ========== END CONFIGURATION ==========
+
+// Helper functions
+function isActive(href) {
+  const normalizedCurrent = currentPath.replace(/\/$/, '');
+  const normalizedHref = href.replace(/\/$/, '');
+  return normalizedCurrent === normalizedHref;
+}
+
+function isDropdownActive(items) {
+  return items.some(item => isActive(item.href));
+}
+---
+<header class="p-0 m-0 w-full">
+<nav aria-label="Main navigation" class="bg-base-100 py-2">
+  <div class="flex flex-wrap items-center justify-between max-w-7xl px-4 mx-auto">
+
+    <!-- Logo -->
+    <a href="/" aria-label="Home" class="flex items-center">
+      <img src="/img/newlogo2.png" class="h-8 mr-3 md:h-12 lg:h-16 2xl:h-20" alt="Return to Homepage || Rule The Web" />
+      <span class="self-center text-xl md:text-3xl font-semibold whitespace-nowrap text-base-900">Rule The Web</span>
+    </a>
+
+    <!-- Right side buttons -->
+    <div class="flex items-center lg:order-2 md:gap-4">
+      <ModeSwitch />
+      <span class="hidden md:inline-flex">
+      <ButtonLink href="/contact" variant="secondary" size="sm">Get Started</ButtonLink>
+      </span>
+      <!-- Hamburger button -->
+      <button
+        id="mobile-toggle"
+        class="inline-flex items-center p-2 ml-1 text-sm text-base-600 rounded-lg lg:hidden hover:bg-base-200 focus:outline-none focus:ring-2 focus:ring-base-300"
+        aria-label="Toggle menu"
+        aria-expanded="false"
+      >
+        <span class="sr-only">Open main menu</span>
+        <svg id="hamburger" class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+          <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path>
+        </svg>
+        <svg id="close" class="hidden w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+          <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Menu (hidden on mobile) -->
+    <div id="mobile-menu" class="hidden w-full lg:flex lg:w-auto lg:order-1">
+      <ul class="flex flex-col mt-4 text-lg lg:flex-row lg:space-x-8 lg:mt-0">
+        {menuConfig.map(item => {
+          if (item.type === 'link') {
+            const active = isActive(item.href);
+            return (
+              <li class="lg:bg-transparent">
+                <a
+                  href={item.href}
+                  class={`block py-2 pl-3 pr-4 border-b border-base-300 lg:border-0 lg:p-0 ${active ? "active" : "text-base-700 hover:text-primary"}`}
+                  aria-current={active ? "page" : undefined}
+                >
+                  {item.label}
+                </a>
+              </li>
+            );
+          }
+          
+          if (item.type === 'dropdown') {
+            const active = isDropdownActive(item.items);
+            return (
+              <li class="relative">
+                <!-- Dropdown button -->
+                <button
+                  data-dropdown-id={item.id}
+                  class="flex items-center w-full py-2 pl-3 pr-4 border-b border-base-300 lg:border-0 lg:p-0 data-[active=true]:text-primary data-[active=true]:font-semibold text-base-700 hover:text-primary"
+                  data-active={active}
+                  aria-expanded="false"
+                >
+                  <span>{item.label}</span>
+                  <svg class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                  </svg>
+                </button>
+
+                <!-- Mobile dropdown items (inline) -->
+                <div 
+                  id={`mobile-${item.id}-dropdown`}
+                  class="lg:hidden hidden pl-6"
+                >
+                  {item.items.map(subItem => {
+                    const subActive = isActive(subItem.href);
+                    return (
+                      <a
+                        href={subItem.href}
+                        class={`block py-2 pl-3 pr-4 ${subActive ? "text-primary font-semibold" : "text-base-700 hover:text-primary"}`}
+                        aria-current={subActive ? "page" : undefined}
+                      >
+                        {subItem.label}
+                      </a>
+                    );
+                  })}
+                </div>
+
+                <!-- Desktop dropdown menu -->
+                <div 
+                  id={`desktop-${item.id}-dropdown`}
+                  class="absolute left-0 z-10 hidden mt-1 bg-white border border-base-200 rounded-lg shadow-lg min-w-[200px]"
+                >
+                  <div class="py-1">
+                    {item.items.map(subItem => {
+                      const subActive = isActive(subItem.href);
+                      return (
+                        <a
+                          href={subItem.href}
+                          class={`block px-4 py-2 text-sm ${subActive ? "bg-primary/10 text-primary font-medium" : "text-base-700 hover:bg-base-100"}`}
+                          aria-current={subActive ? "page" : undefined}
+                        >
+                          {subItem.label}
+                        </a>
+                      );
+                    })}
+                  </div>
+                </div>
+              </li>
+            );
+          }
+        })}
+      </ul>
+    </div>
+  </div>
+</nav>
+</header>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Mobile menu toggle
+  const mobileToggle = document.getElementById('mobile-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const hamburger = document.getElementById('hamburger');
+  const close = document.getElementById('close');
+
+  if (mobileToggle && mobileMenu) {
+    mobileToggle.addEventListener('click', function() {
+      const isExpanded = this.getAttribute('aria-expanded') === 'true';
+      this.setAttribute('aria-expanded', !isExpanded);
+      mobileMenu.classList.toggle('hidden');
+      hamburger.classList.toggle('hidden');
+      close.classList.toggle('hidden');
+
+      // Close all dropdowns when closing main menu
+      document.querySelectorAll('[id$="-dropdown"]').forEach(dropdown => {
+        dropdown.classList.add('hidden');
+      });
+      document.querySelectorAll('[data-dropdown-id]').forEach(button => {
+        button.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+
+  // Generic dropdown toggle function
+  function setupDropdownToggle(button) {
+    const dropdownId = button.getAttribute('data-dropdown-id');
+    const desktopDropdown = document.getElementById(`desktop-${dropdownId}-dropdown`);
+    const mobileDropdown = document.getElementById(`mobile-${dropdownId}-dropdown`);
+
+    button.addEventListener('click', function(e) {
+      e.stopPropagation();
+
+      if (window.innerWidth < 1024) {
+        // Mobile: toggle inline dropdown
+        if (mobileDropdown) {
+          mobileDropdown.classList.toggle('hidden');
+          this.setAttribute('aria-expanded', mobileDropdown.classList.contains('hidden') ? 'false' : 'true');
+        }
+      } else {
+        // Desktop: toggle floating dropdown
+        if (desktopDropdown) {
+          desktopDropdown.classList.toggle('hidden');
+          this.setAttribute('aria-expanded', desktopDropdown.classList.contains('hidden') ? 'false' : 'true');
+        }
+      }
+    });
+
+    return { desktopDropdown, mobileDropdown };
+  }
+
+  // Setup all dropdowns
+  const dropdowns = {};
+  document.querySelectorAll('[data-dropdown-id]').forEach(button => {
+    const dropdownId = button.getAttribute('data-dropdown-id');
+    dropdowns[dropdownId] = setupDropdownToggle(button);
+  });
+
+  // Close dropdowns when clicking outside
+  document.addEventListener('click', function(e) {
+    document.querySelectorAll('[data-dropdown-id]').forEach(button => {
+      const dropdownId = button.getAttribute('data-dropdown-id');
+      const desktopDropdown = document.getElementById(`desktop-${dropdownId}-dropdown`);
+      const mobileDropdown = document.getElementById(`mobile-${dropdownId}-dropdown`);
+
+      if (window.innerWidth >= 1024) {
+        // Desktop
+        if (desktopDropdown && !desktopDropdown.contains(e.target) && !button.contains(e.target)) {
+          desktopDropdown.classList.add('hidden');
+          button.setAttribute('aria-expanded', 'false');
+        }
+      } else {
+        // Mobile
+        if (mobileDropdown && !mobileDropdown.contains(e.target) && !button.contains(e.target)) {
+          mobileDropdown.classList.add('hidden');
+          button.setAttribute('aria-expanded', 'false');
+        }
+      }
+    });
+  });
+
+  // Close dropdowns on escape key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      document.querySelectorAll('[id$="-dropdown"]').forEach(dropdown => {
+        dropdown.classList.add('hidden');
+      });
+      document.querySelectorAll('[data-dropdown-id]').forEach(button => {
+        button.setAttribute('aria-expanded', 'false');
+      });
+    }
+  });
+});
+</script>
+
+
+---------------------------------
+
+

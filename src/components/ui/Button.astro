@@ -1,0 +1,41 @@
+---
+const { 
+  variant = 'primary',
+  size = 'md',
+  type = 'button',
+  disabled = false,
+  fullWidth = false,
+  className = '',
+  onClick
+} = Astro.props;
+
+const variants = {
+  primary: 'btn btn-primary',
+  secondary: 'btn btn-secondary',
+  outline: 'btn btn-outline',
+  ghost: 'btn btn-ghost'
+};
+
+const sizes = {
+  sm: 'btn-sm',
+  md: 'btn-md',
+  lg: 'btn-lg'
+};
+
+const classes = [
+  variants[variant],
+  sizes[size],
+  fullWidth ? 'w-full' : '',
+  disabled ? 'btn-disabled' : '',
+  className
+].filter(Boolean).join(' ');
+---
+
+<button
+  type={type}
+  class={classes}
+  disabled={disabled}
+  onclick={onClick}
+>
+  <slot />
+</button>

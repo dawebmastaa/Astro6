@@ -1,0 +1,45 @@
+---
+const { title, description, robots, sitename } = Astro.props;
+---
+    <title>{title}</title>
+
+    <!-- Meta SEO -->
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+    <meta name="robots" content={robots} />
+    <meta name="language" content="English" />
+    <meta name="author" content="Mike Alberts" />
+
+    <!-- Social media share -->
+    <meta property="og:title" content={title} />
+    <meta property="og:site_name" content={sitename} />
+    <meta property="og:url" content={Astro.request.url} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content={Astro.url.origin + '/img/og-image.png'} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={title} />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:locale" content="en_US" />
+
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={Astro.url.origin + '/img/og-image.png'} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:creator" content="Mike Alberts" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/img/favicons/favicon.svg" />
+    <link rel="shortcut icon" href="/img/favicons/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/favicons/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content={sitename} />
+    <link rel="manifest" href="/img/favicons/site.webmanifest" />
+
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)" />
+    <meta name="copyright" content={`© ${new Date().getFullYear()} ${sitename}`} />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />

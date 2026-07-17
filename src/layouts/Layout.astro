@@ -1,22 +1,43 @@
-<!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
-</html>
+---
+import "@/styles/global.css";
+import Header from '@/components/template/Header.astro'
+import Footer from "@/components/template/Footer.astro";
+import Meta from "@/components/template/Meta.astro";
+import Schema from "@/components/template/Schema.astro";
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>
+const { title, description, robots, sitename = "Rule The Web", currentPath = Astro.url.pathname } = Astro.props;
+---
+<!doctype html>
+<html lang="en" data-theme="light">
+    <head>
+        <base href={Astro.url.origin} />
+        <link rel="canonical" href={Astro.request.url} />
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="icon" href="/img/logo.svg" />
+        <link rel="sitemap" href="/sitemap-index.xml" />
+        <Meta title={title} description={description} robots={robots} sitename={sitename} />
+        <Schema sitename={sitename} title={title} description={description} noSiteSearch={true}  />
+        <script is:inline>
+          // IMMEDIATE theme detection (no flash)
+          (function() {
+            const savedTheme = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            // Priority: saved theme > system preference > light
+            const theme = savedTheme || (prefersDark ? 'dark' : 'light');
+            document.documentElement.setAttribute('data-theme', theme);
+          })();
+        </script>
+        <script defer src="https://unpkg.com/alpinejs@latest/dist/cdn.min.js"></script>
+    </head>
+
+    <body lang="en" dir="ltr">
+      <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4">Skip to main content</a>
+        <Header sitename={sitename} currentPath={currentPath} />
+        <main id="main" class="min-h-svh">
+          <slot />
+        </main>
+        <Footer />
+    </body>
+</html>

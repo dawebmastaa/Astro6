@@ -1,0 +1,15 @@
+<!-- Card -->
+<div class="flex flex-col w-auto border border-primary/20 rounded">
+    <!-- Content -->
+    <div class="flex flex-col gap-2 p-4 bg-base-200">
+        <slot name="headline"><h1 class="font-bold text-xl">Default Headline/Name</h1></slot>
+        <slot name="description"><span>This is the default description text.</span></slot>
+    </div>
+    <!-- Image -->
+    <slot name="image"><div class="bg-[url('img/forest.jpg')] bg-center w-full h-60"></div></slot>
+    <!-- Buttom -->
+    <div class="flex justify-between p-4">
+        <slot name="price"><span class="font-bold text-xl">$129</span></slot>
+        <a class="btn btn-primary btn-sm">Add to cart</a>
+    </div>
+</div>

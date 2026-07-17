@@ -1,0 +1,121 @@
+---
+const {
+  sitename,
+  title,
+  description,
+  datePublished = '',
+  dateModified = '',
+  authorName = '',
+  authorUrl = '',
+  logoUrl = '',
+  imageUrl = '',
+  category = '',
+  keywords = '',
+  // New props
+  pageUrl = Astro.url, // Accepts a URL object, defaults to current page
+  noSiteSearch = false // Flag to skip WebSite schema
+} = Astro.props;
+
+const pathname = pageUrl.pathname;
+
+// 1. Determine the primary schema type based on the URL
+let schemaType = 'webpage'; // Default for all other pages
+if (pathname === '/') {
+  schemaType = 'website';
+} else if (pathname === '/blog/' || pathname === '/articles/') {
+  schemaType = 'collection';
+} else if (pathname.startsWith('/blog/') || pathname.startsWith('/articles/')) {
+  // This catches individual posts like /blog/post-name
+  schemaType = 'content';
+}
+
+// 2. Define the schemas
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": sitename,
+  "url": pageUrl.origin,
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": `${pageUrl.origin}/search?q={search_term_string}`,
+    "query-input": "required name=search_term_string"
+  }
+};
+
+const webpageSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "url": pageUrl.href,
+  "name": title || sitename,
+  "description": description || ""
+};
+
+// Dynamic collection page schema
+const isBlogCollection = pathname === '/blog/';
+const collectionPageName = isBlogCollection ? 'Blog' : 'Articles';
+const collectionAboutType = isBlogCollection ? 'Blog' : 'Series'; // 'Series' for articles
+
+const collectionIndexSchema = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "url": pageUrl.href,
+  "name": title || `${collectionPageName} | ${sitename}`,
+  "description": description || `A collection of all ${collectionPageName.toLowerCase()} posts.`,
+  "about": {
+    "@type": collectionAboutType,
+    "name": `${sitename} ${collectionPageName}`,
+    "description": `The ${collectionPageName.toLowerCase()} of ${sitename}.`
+  }
+};
+
+// Single, consolidated schema for blog posts and articles
+// Determine specific @type: BlogPosting for /blog/, Article for /articles/ or as fallback
+const contentType = pathname.startsWith('/blog/') ? 'BlogPosting' : 'Article';
+
+const contentSchema = {
+  "@context": "https://schema.org",
+  "@type": contentType,
+  "headline": title,
+  "description": description,
+  "url": pageUrl.href,
+  "datePublished": datePublished,
+  "dateModified": dateModified || datePublished,
+  "author": {
+    "@type": "Person",
+    "name": authorName,
+    "url": authorUrl
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": sitename,
+    "logo": {
+      "@type": "ImageObject",
+      "url": logoUrl || `${pageUrl.origin}/logo.png`
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": pageUrl.href
+  },
+  "image": imageUrl,
+  // Include Article-specific fields only if they have values (neater output)
+  ...(category && { "articleSection": category }),
+  ...(keywords && { "keywords": keywords })
+};
+---
+<!-- Output logic based on determined schemaType -->
+{schemaType === 'website' && !noSiteSearch && (
+  <script type="application/ld+json" set:html={JSON.stringify(websiteSchema, null, 2)} />
+)}
+
+{schemaType === 'webpage' && (
+  <script type="application/ld+json" set:html={JSON.stringify(webpageSchema, null, 2)} />
+)}
+
+{schemaType === 'collection' && (
+  <script type="application/ld+json" set:html={JSON.stringify(collectionIndexSchema, null, 2)} />
+)}
+
+{schemaType === 'content' && (
+  <script type="application/ld+json" set:html={JSON.stringify(contentSchema, null, 2)} />
+)}

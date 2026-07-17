@@ -1,0 +1,69 @@
+---
+title: "Contact Us | Modern Web Development"
+description: "Learn about our mission to replace bloated WordPress sites"
+robots: "index,follow"
+
+excerpt: "Agency looking to increase margins? Small business wanting to escape WordPress bloat? We’re here to help you build faster, cheaper, better-performing websites."
+heroImage: "img/hero/17.jpg"
+imageAlt: "A modern business dashboard showing analytics, charts, and metrics with a sleek UI design"
+headingText: "Let’s Build Out Your Perfect"
+headingText2: "Modern Web Stack"
+heroExcerpt: "Agency looking to increase margins? Small business wanting to escape WordPress bloat? We’re here to help you build faster, cheaper, better-performing websites."
+footerText: ""
+
+ctaText: "Schedule Consultation"
+ctaLink: ""
+cta2Text: "Send A Message"
+cta2Link: ""
+---
+
+import ContactModal from "@/components/ui/ContactModal.astro";
+import BookingModal from "@/components/ui/BookingModal.astro";
+import Testimonial2 from "@/components/sections/testimonials/Testimonial2.astro";
+
+<section class="bg-primary-600 relative overflow-hidden" x-data="{ calendarModalOpen: false, contactModalOpen: false }" x-on:keydown_escape_window="calendarModalOpen = false; contactModalOpen = false">
+    <div class="mx-auto max-w-7xl">
+        <div class="py-6 md:py-12 bg-gradient-to-r lg:max-w-2xl relative z-10">
+        <div class="mx-auto max-w-7xl">
+            <div class="text-center px-2 lg:text-left space-y-6 md:pl-6">
+            <h1 class="text-3xl sm:text-4xl tracking-tight font-extrabold text-white">
+                <span class="block">{frontmatter.headingText}</span>
+                <span class="text-primary-300 block">{frontmatter.headingText2}</span>
+            </h1>
+            <p class="text-base text-white md:text-lg lg:text-xl sm:max-w-xl mx-auto lg:mx-0"> {frontmatter.excerpt}</p>
+            <div class="mt-5 sm:flex sm:justify-center lg:justify-start gap-x-2">
+            <button
+                id="open-calendar-btn"
+                title="A FREE no obligation callback consultation!!"
+                type="button"
+                class="btn btn-primary p-2"
+                x-on:click="calendarModalOpen = true" >{frontmatter.ctaText}</button>
+
+            <button
+                id="contact-modal-btn"
+                title="Use this form to send an inquiry."
+                type="button"
+                class="btn btn-white-primary p-2"
+                x-on:click="contactModalOpen = true" >{frontmatter.cta2Text}</button>
+           </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        <div class="lg:absolute lg:inset-y-0 lg:right-0 lg:w-2/3">
+          <Images
+              srcPath={frontmatter.heroImage}
+              alt={frontmatter.imageAlt}
+              component="picture"
+              formats={['avif', 'webp']}
+              sizes="(max-width: 768px) 100vw, 1200px"
+              widths={[400, 800, 1200]}
+              className="object-cover h-56 w-full sm:h-72 md:h-96 lg:w-full lg:h-full"
+              loading="eager"
+              fetchpriority="high"
+            />
+        </div>
+</section>
+<ContactModal />
+<BookingModal />
+<Testimonial2 />

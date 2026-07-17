@@ -1,0 +1,63 @@
+---
+title: "Rule The Web Article Index"
+description: "Stop overpaying for slow, hackable WordPress sites. Get 95+/100 Lighthouse scores for $20/month with our modern static site stack. Free blueprint download."
+robots: "index, follow"
+navOrder: 5
+hideFromNav: false
+heroImage: "img/newhero7.webp"
+imageAlt: "Rule The Web Articles"
+headingText: "Rule The Web Articles - Tech For Modern Web Sites"
+footerText: "⚡ let's build websites that don't suck!"
+ctaText: "Get The Modern Blueprint"
+ctaLink: "/blueprint"
+cta2Text: "Visit The Blog"
+cta2Link: "/blog"
+excerpt: ""
+publishDate: "2024-01-01"
+updateDate: "2026-04-28"
+tags: []
+featured: false
+draft: false
+---
+import ListContent from "@/components/ui/ListContent.astro";
+
+    <section class="bg-primary-600 relative overflow-hidden">
+        <div class="mx-auto max-w-7xl">
+          <div class="py-12 bg-gradient-to-r lg:max-w-2xl lg:w-full relative z-10 text-white">
+            <div class="mx-auto max-w-7xl">
+              <div class="text-center px-2 lg:text-left lg:pl-4">
+                <h1 class="text-3xl tracking-tight font-extrabold text-white sm:text-4xl">
+                  <span class="block">Rule The Web Articles,</span>
+                  <span class="text-primary-300 block">More Info - Bigger Impact</span>
+                </h1>
+                <p class="my-4 text-base sm:text-lg sm:max-w-xl mx-auto md:text-xl lg:mx-0">Deploy unlimited static sites with 95+/100 Lighthouse scores. Zero maintenance, unhackable, hosted for pennies.</p>
+                <div class="mt-5 sm:flex sm:justify-center lg:justify-start gap-x-2">
+                  <ButtonLink href="/contact" variant="primary" size="md">Get Started</ButtonLink>
+                  <ButtonLink href="/contact" variant="white-primary" size="md">Learn More</ButtonLink>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="lg:absolute lg:inset-y-0 lg:right-0 lg:w-2/3">
+          <Images
+              srcPath="img/hero/23.jpg"
+              alt="A modern business dashboard showing analytics, charts, and metrics with a sleek UI design"
+              component="picture"
+              formats={['avif', 'webp']}
+              sizes="(max-width: 768px) 100vw, 1200px"
+              widths={[400, 800, 1200]}
+              className="object-cover h-56 w-full sm:h-72 md:h-96 lg:w-full lg:h-full"
+              loading="eager"
+              fetchpriority="high"
+            />
+        </div>
+      </section>
+
+<section class="bg-base-200 text-base-900">
+  <div class="max-w-screen-xl px-6 py-4 sm:py-6 md:py-8 xl:py-12 2xl:py-32 mx-auto">
+     <div class="space-y-8 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-12 md:space-y-0">
+     <ListContent collection="articles" />
+     </div>
+  </div>
+</section>

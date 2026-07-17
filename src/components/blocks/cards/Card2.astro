@@ -1,0 +1,17 @@
+---
+const { className = "", variant = "default" } = Astro.props;
+
+const variants = {
+	default: "bg-base-100 shadow rounded-lg",
+	bordered: "bg-base-100 border border-base-200 rounded-lg",
+	dkborder: "bg-base-200 border border-base-300 rounded-lg",
+	shadow: "bg-base-100 rounded-lg shadow-lg",
+	flat: "bg-base-100 rounded-lg",
+};
+---
+
+<div class={`p-6 ${variants[variant]} ${className}`}>
+  <div>
+    <slot />
+  </div>
+</div>

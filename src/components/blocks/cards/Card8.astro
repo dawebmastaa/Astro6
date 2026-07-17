@@ -1,0 +1,9 @@
+<!-- Card -->
+<div class="flex flex-col bg-base-200 rounded-box border border-primary/20">
+    <slot name="image"><div class="bg-[url('img/forest.jpg')] bg-center rounded-t-box w-full h-72"></div></slot>
+    <!-- Body -->
+    <div class="flex flex-col items-center gap-2 p-4 border-t border-primary/20">
+        <slot name="name"><h2 class="font-bold text-xl">Default Name</h2></slot>
+        <slot name="position"><span class="text-sm">Default Position</span></slot>
+    </div>
+</div>

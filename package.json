@@ -1,14 +1,29 @@
 {
-  "name": "",
+  "name": "RuleTheWeb.us Website",
+  "version": "1.0.0",
+  "private": true,
   "type": "module",
-  "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "build": "node scripts/build-clean.js",
+    "build:with-cms": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "format": "biome format --write .",
+    "lint": "biome lint --write .",
+    "check": "biome check --write .",
+    "check:ci": "biome check ."
   },
   "dependencies": {
-    "astro": "^5.1.9"
+    "astro": "7.0.0",
+    "glob": "^13.0.6",
+    "tailwindcss": "^4.3.0",
+    "@tailwindcss/typography": "^0.5.19",
+    "@tailwindcss/vite": "^4.3.0",
+    "@astrojs/mdx": "7.0.0",
+    "@astrojs/sitemap": "3.7.3",
+    "typescript": "^5.9.3"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.4.15"
   }
 }

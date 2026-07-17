@@ -1,0 +1,35 @@
+---
+import ButtonLink from "@/components/ui/ButtonLink.astro";
+import Images from "@/components/ui/Images.astro";
+import HeroImage from "@/assets/img/photo-1514525253161-7a46d19cd819.avif";
+---
+  <!-- Hero Section -->
+  <section class="bg-base-200 text-base-900 border-b border-base-300 mx-auto">
+    <div class="grid max-w-screen-xl sm:py-6 md:py-8 xl:py-12 2xl:py-16 mx-auto lg:grid-cols-12">
+        <div class="lg:shadow-lg shadow-base-300/50 mr-auto place-self-center lg:col-span-5 p-6">
+            <h1 class="text-2xl md:text-3xl lg:text-4xl font-bold">More Heros Needed!!</h1>
+            <p class="py-6">
+              Provident stupida voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem
+              quasi. In deleniti eaque aut repudiandae et a id nisi.
+            </p>
+            <div class="space-y-4 sm:flex sm:space-y-0 sm:space-x-4">
+                <ButtonLink href="/modern-stack-blueprint" variant="primary" size="sm">Get The Modern Stack Blueprint</ButtonLink>
+                <ButtonLink href="/performance-demo" variant="outline" size="sm">See Live Performance Demo</ButtonLink>
+            </div>
+            <p class="mt-6 text-sm text-base-700">⚡ 47 agencies increased margins by 60%+ using our stack</p>
+        </div>
+        <div class="hidden lg:m-0 lg:col-span-7 lg:flex">
+            <Images
+              src={HeroImage}
+              alt="Modern web development hero"
+              component="picture"
+              formats={['avif', 'webp']}
+              sizes="(max-width: 768px) 100vw, 1200px"
+              widths={[400, 800, 1200]}
+              className="hidden md:inline max-w-5/12 lg:max-w-7/8 rounded-2xl shadow-lg shadow-base-300/50 m-12"
+              loading="eager"
+              fetchpriority="high"
+            />
+        </div>
+    </div>
+  </section>

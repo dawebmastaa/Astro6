@@ -1,0 +1,375 @@
+---
+title: "Build Jamstack For Free!! | Modern Static Websites That Actually Perform"
+description: "Stop overpaying for slow, hackable WordPress sites. Get 100/100 Lighthouse scores for $20/month with our modern static site stack. Free blueprint download."
+robots: "index,follow"
+
+excerpt: "Deploy unlimited static sites with 95+/100 Lighthouse scores. Zero maintenance, unhackable, hosted for pennies."
+heroImage: "img/hero/4.jpg"
+imageAlt: "A modern business dashboard showing analytics, charts, and metrics with a sleek UI design"
+headingText: "Modern Solutions For"
+headingText2: "Your Business"
+heroExcerpt: "Deploy unlimited static sites with 95+/100 Lighthouse scores. Better performance, better rankings. Zero maintenance, unhackable, hosted for pennies."
+footerText: ""
+
+ctaText: "Get Started"
+ctaLink: "/contact"
+cta2Text: "Learn More"
+cta2Link: "/contact"
+
+navOrder: 1
+---
+
+<section class="bg-primary-600 relative overflow-hidden">
+  <div class="mx-auto max-w-7xl">
+    <div class="py-6 md:py-12 bg-gradient-to-r lg:max-w-2xl relative z-10">
+      <div class="mx-auto max-w-7xl">
+        <div class="text-center px-2 lg:text-left space-y-6 md:pl-6">
+          <h1 class="text-3xl sm:text-4xl tracking-tight font-extrabold text-white">
+            <span class="block">{frontmatter.headingText}</span>
+            <span class="text-primary-300 block">{frontmatter.headingText2}</span>
+          </h1>
+          <p class="text-base text-white md:text-lg lg:text-xl sm:max-w-xl mx-auto lg:mx-0">{frontmatter.heroExcerpt}</p>
+          <div class="mt-5 sm:flex sm:justify-center lg:justify-start gap-x-2">
+            <ButtonLink href={frontmatter.ctaLink} variant="primary" size="md">{frontmatter.ctaText}</ButtonLink>
+            <ButtonLink href={frontmatter.cta2Link} variant="white-primary" size="md">{frontmatter.cta2Text}</ButtonLink>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="lg:absolute lg:inset-y-0 lg:right-0 lg:w-2/3">
+    <Images
+        srcPath={frontmatter.heroImage}
+        alt={frontmatter.imageAlt}
+        component="picture"
+        formats={['avif', 'webp']}
+        sizes="(max-width: 768px) 100vw, 1200px"
+        widths={[400, 800, 1200]}
+        className="object-cover h-56 w-full sm:h-72 md:h-96 lg:w-full lg:h-full"
+        loading="eager"
+        fetchpriority="high"
+      />
+  </div>
+</section>
+
+<section class="bg-base-300 border-b border-primary-300">
+  <div class="mx-auto px-4 sm:px-6 lg:px-8 py-4 md:py-8 lg:py-16 max-w-7xl">
+    <div class="mt-0 grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
+
+      <Card2 variant="bordered">
+          <div class="items-center flex text-sm">
+          <div class="bg-primary-700 rounded-md shrink-0 p-3">
+              <svg class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+              </svg>
+          </div>
+          <div class="ml-5 space-y-2">
+              <h2 class="text-lg font-medium">AI Changes Everything</h2>
+              <p>Put an army of AI powered virtual assistants to work for your business. If you don't, you can bet your competition will.</p>
+              <p>It's simple. Now more than any time in history, Evolve or DIE.</p>
+          </div>
+          </div>
+      </Card2>
+
+      <Card2 variant="bordered">
+          <div class="items-center flex text-sm">
+            <div class="bg-primary-700 rounded-md shrink-0 p-3">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
+                </svg>
+            </div>
+            <div class="ml-5 space-y-2">
+              <p class="text-lg font-medium">Automation Lowers Costs</p>
+              <p>Save time AND money putting automation to work.</p>
+              <p>CPU cycles are not free, but they are a lot cheaper than man-hours. And they can handle more tasks at once.</p>
+            </div>
+          </div>
+      </Card2>
+
+      <Card2 variant="bordered">
+          <div class="items-center flex text-sm">
+            <div class="bg-primary-700 rounded-md shrink-0 p-3 shadow-md">
+              <svg class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+              </svg>
+            </div>
+            <div class="ml-5 space-y-2">
+              <p class="text-lg font-medium">Change Is Constant</p>
+              <p>You don't have time to stay on top of meaningful tech trends while trying to run a business.</p>
+              <p>We do the work for you, and present solutions to YOUR business challenges.</p>
+            </div>
+          </div>
+      </Card2>
+
+    </div>
+  </div>
+</section>
+
+<section class="bg-base-100">
+  <div class="mx-auto px-4 sm:px-6 lg:px-8 py-6 lg:py-12 max-w-7xl">
+
+    <div class="text-center">
+      <h3 class="text-primary-700 font-semibold tracking-wide uppercase">Features</h3>
+      <p class="mt-2 text-2xl md:text-4xl tracking-tight font-extrabold">A Better Way To Work</p>
+      <p class="mt-4 text-md lg:text-xl mx-auto max-w-2xl text-gray-500">Thirty years experience gives a unique perspective of what works - what has always worked and what continues to work, despite the hype and fads.</p>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-4 md:mt-10">
+
+      <Card2 variant="dkborder">
+      <div class="items-center flex text-sm">
+          <div class="bg-primary-700 rounded-md shrink-0 p-3">
+              <svg class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+              </svg>
+          </div>
+          <div class="ml-5 space-y-2">
+              <p class="text-lg font-medium">Fast Performance</p>
+              <p>Leaner code downloads faster, runs faster and is more optimized. It's just better.</p>
+          </div>
+          </div>
+      </Card2>
+
+      <Card2 variant="dkborder">
+      <div class="items-center flex text-sm">
+          <div class="bg-primary-700 rounded-md shrink-0 p-3">
+            <svg class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+            </svg>
+          </div>
+          <div class="ml-5 space-y-2">
+            <p class="text-lg font-medium">Secure Platform</p>
+            <p>Static sites do not get hacked. There is nothing to hack. You don't need a database driven site.</p>
+          </div>
+        </div>
+      </Card2>
+
+      <Card2 variant="dkborder">
+          <div class="items-center flex text-sm">
+              <div class="bg-primary-700 rounded-md shrink-0 p-3">
+                <svg class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                </svg>
+              </div>
+              <div class="ml-5 space-y-2">
+                <p class="text-lg font-medium">Advanced Analytics</p>
+                <p>Gain valuable insights into your business with powerful analytics tools.</p>
+              </div>
+            </div>
+      </Card2>
+      </div>
+
+  </div>
+</section>
+
+<section class="bg-primary-800">
+  <div class="mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 lg:flex lg:items-center lg:justify-between max-w-7xl">
+    <p class="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
+      <span class="block">Ready to get started?</span>
+      <span class="text-primary-200 block">Contact us or get our free guide today.</span>
+    </p>
+    <div class="mt-8 lg:mt-0 lg:shrink-0 flex gap-4">
+      <ButtonLink href="/contact" variant="white-primary" size="md">Get Started</ButtonLink>
+      <ButtonLink href="/contact" variant="secondary" size="md" class="mt-3 sm:mt-0">Learn More</ButtonLink>
+    </div>
+  </div>
+</section>
+
+<section class="bg-base-100 border-y border-primary-300">
+  <div class="mx-auto px-4 md:px-8 py-6 sm:py-8 lg:py-12 max-w-7xl">
+
+    <div class="mb-10 md:mb-16">
+      <h2 class="mb-4 text-center text-3xl md:text-4xl tracking-tight font-extrabold">Our Competitive Advantage</h2>
+      <p class="mx-auto max-w-3xl text-center text-md lg:text-xl">Discover how our platform can transform your workflow and boost productivity.</p>
+    </div>
+
+    <div class="grid gap-8 sm:grid-cols-2 md:gap-12 xl:grid-cols-3 xl:gap-16">
+
+      <div class="flex gap-4 md:gap-6">
+        <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-primary-700 text-white shadow-lg md:h-14 md:w-14 md:rounded-xl">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+          </svg>
+        </div>
+
+        <div>
+          <h3 class="mb-2 text-lg font-medium text-primary-700">Growth</h3>
+          <p class="mb-2 text-sm">Spend your time GROWING your site, Not patching and maintaining it. Who has time for that?</p>
+          <a href="#" class="font-bold text-primary-500 transition duration-100 hover:text-primary-600 active:text-primary-700">More</a>
+        </div>
+      </div>
+
+      <div class="flex gap-4 md:gap-6">
+        <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-primary-700 text-white shadow-lg md:h-14 md:w-14 md:rounded-xl">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+          </svg>
+        </div>
+
+        <div>
+          <h3 class="mb-2 text-lg font-medium text-primary-700">Security</h3>
+          <p class="mb-2 text-sm">If your site consists of static pages, which the majority of small business sites SHOULD, there is nothing to hack. So your site will be secure.</p>
+          <a href="#" class="font-bold text-primary-500 transition duration-100 hover:text-primary-600 active:text-primary-700">More</a>
+        </div>
+      </div>
+
+      <div class="flex gap-4 md:gap-6">
+        <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-primary-700 text-white shadow-lg md:h-14 md:w-14 md:rounded-xl">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
+          </svg>
+        </div>
+
+        <div>
+          <h3 class="mb-2 text-lg font-medium text-primary-700">Cloud</h3>
+          <p class="mb-2 text-sm">Host your site in the cloud for free. Track your files wth Git and never worry about backups again.</p>
+          <a href="#" class="font-bold text-primary-500 transition duration-100 hover:text-primary-600 active:text-primary-700">More</a>
+        </div>
+      </div>
+
+      <div class="flex gap-4 md:gap-6">
+        <div class="flex h-12 w-12 md:h-14 md:w-14 rounded-lg md:rounded-xl shrink-0 items-center justify-center bg-primary-700 text-white shadow-lg">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+          </svg>
+        </div>
+
+        <div>
+          <h3 class="mb-2 text-lg font-medium text-primary-700">Speed</h3>
+          <p class="mb-2 text-sm">Lean, optimized pages are always the fastest. They will be ranked higher in the search engines as well.</p>
+          <a href="#" class="font-bold text-primary-500 transition duration-100 hover:text-primary-600 active:text-primary-700">More</a>
+        </div>
+      </div>
+
+      <div class="flex gap-4 md:gap-6">
+        <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-primary-700 text-white shadow-lg md:h-14 md:w-14 md:rounded-xl">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" />
+          </svg>
+        </div>
+
+        <div>
+          <h3 class="mb-2 text-lg font-medium text-primary-700">Support</h3>
+          <p class="mb-2 text-sm">Filler text is dummy text which has no meaning however looks very similar to real text.</p>
+          <a href="#" class="font-bold text-primary-500 transition duration-100 hover:text-primary-600 active:text-primary-700">More</a>
+        </div>
+      </div>
+
+      <div class="flex gap-4 md:gap-6">
+        <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-primary-700 text-white shadow-lg md:h-14 md:w-14 md:rounded-xl">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+          </svg>
+        </div>
+
+        <div>
+          <h3 class="mb-2 text-lg font-medium text-primary-700">Dark Mode</h3>
+          <p class="mb-2 text-sm">Dark fucking mode is dummy text which has no meaning however looks very similar to real text.</p>
+          <a href="#" class="font-bold text-primary-500 transition duration-100 hover:text-primary-600 active:text-primary-700">More</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="bg-base-300">
+  <div class="mx-auto px-4 sm:px-6 lg:px-8 py-6 lg:py-16 max-w-7xl">
+
+    <div class="text-center">
+      <p class="text-base text-primary-700 font-semibold tracking-wide uppercase">Testimonials</p>
+      <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight sm:text-4xl">What our clients say</p>
+    </div>
+
+    <div class="mt-12 md:grid-cols-2 lg:grid-cols-3 grid gap-8">
+
+      <Card2 variant="bordered">
+          <div class="items-center mb-4 flex">
+            <img alt="Jane Smith headshot, a professional woman with short brown hair" src="https://placehold.co/100x100/transparent/white?text=JS" class="bg-primary-700 h-12 w-12 rounded-full" />
+            <div class="ml-4">
+              <p class="text-lg font-medium">Jane Smith</p>
+              <p>CEO, TechCorp</p>
+            </div>
+          </div>
+          <p>"This platform has completely transformed how we manage our projects. The intuitive interface and powerful features have increased our productivity by 40%."</p>
+          <div class="mt-4 flex">
+            <svg class="h-5 w-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" id="Windframe_NVKsDNSQG">
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+            </svg>
+            <svg class="h-5 w-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" id="Windframe_onSxgrllV">
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+            </svg>
+            <svg class="h-5 w-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" id="Windframe_SrVf9MTp1">
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+            </svg>
+            <svg class="h-5 w-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" id="Windframe_FxiJSXtmM">
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+            </svg>
+            <svg class="h-5 w-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" id="Windframe_HlwEPYPfi">
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+            </svg>
+          </div>
+        </Card2>
+
+        <Card2 variant="bordered">
+          <div class="items-center mb-4 flex">
+            <img alt="Mark Johnson headshot, a professional man with glasses and dark hair" src="https://placehold.co/100x100/transparent/white?text=MJ" class="bg-primary-700 h-12 w-12 rounded-full" />
+            <div class="ml-4">
+              <p class="text-lg font-medium">Mark Johnson</p>
+              <p>CTO, Innovate Inc</p>
+            </div>
+          </div>
+          <p>"The analytics capabilities are exceptional. We're now able to make data-driven
+              decisions that have significantly improved our ROI. Customer support is also top-notch."</p>
+          <div class="mt-4 flex">
+            <svg class="h-5 w-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" id="Windframe_RdrifO97R">
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+            </svg>
+            <svg class="h-5 w-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" id="Windframe_rwnFFkk91">
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+            </svg>
+            <svg class="h-5 w-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" id="Windframe_6CF8A1h37">
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+            </svg>
+            <svg class="h-5 w-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" id="Windframe_8FaXDyIrQ">
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+            </svg>
+            <svg class="h-5 w-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" id="Windframe_Nh42aPJfa">
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+            </svg>
+          </div>
+        </Card2>
+
+        <Card2 variant="bordered">
+          <div class="items-center mb-4 flex">
+            <img alt="Sarah Lee headshot, a professional woman with long black hair" src="https://placehold.co/100x100/transparent/white?text=SL" class="bg-primary-700 h-12 w-12 rounded-full" />
+            <div class="ml-4">
+              <p class="text-lg font-medium">Sarah Lee</p>
+              <p>Marketing Director, Growth Co</p>
+            </div>
+          </div>
+          <p>"Implementation was smooth and the learning curve minimal. Our team was up and
+              running in days, not weeks. The ROI has been impressive from day one."</p>
+          <div class="mt-4 flex">
+            <svg class="h-5 w-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" id="Windframe_jwWBVZ9ks">
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+            </svg>
+            <svg class="h-5 w-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" id="Windframe_L9XLGe6ne">
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+            </svg>
+            <svg class="h-5 w-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" id="Windframe_FRRxS2aDH">
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+            </svg>
+            <svg class="h-5 w-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" id="Windframe_0CJZXkFjO">
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+            </svg>
+            <svg class="h-5 w-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" id="Windframe_Eb74XrBDD">
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+            </svg>
+          </div>
+        </Card2>
+
+    </div>
+
+  </div>
+</section>

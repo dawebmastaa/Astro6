@@ -1,0 +1,66 @@
+---
+import Hero1 from "@/components/blocks/hero/Hero1.astro";
+import Hero2 from "@/components/blocks/hero/Hero2.astro";
+import Hero3 from "@/components/blocks/hero/Hero3.astro";
+import Hero4 from "@/components/blocks/hero/Hero4.astro";
+import Hero5 from "@/components/blocks/hero/Hero5.astro";
+import Hero6 from "@/components/blocks/hero/Hero6.astro";
+import Hero7 from "@/components/blocks/hero/Hero7.astro";
+---
+
+<section aria-hidden="true" class="relative w-full overflow-hidden">
+
+  <!-- Static first hero -->
+  <div class="static-hero">
+    <Hero2 />
+  </div>
+
+  <!-- Carousel -->
+  <div class="carousel-container hidden">
+    <div class="carousel-track">
+      <div class="carousel-slide"><Hero1 /></div>
+      <div class="carousel-slide"><Hero2 /></div>
+      <div class="carousel-slide"><Hero3 /></div>
+      <div class="carousel-slide"><Hero4 /></div>
+      <div class="carousel-slide"><Hero5 /></div>
+      <div class="carousel-slide"><Hero6 /></div>
+      <div class="carousel-slide"><Hero7 /></div>
+    </div>
+  </div>
+
+  <!-- 10 lines of JS -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const container = document.querySelector('.carousel-container');
+      const track = document.querySelector('.carousel-track');
+      const slides = document.querySelectorAll('.carousel-slide');
+
+      if (!container || !track) return;
+
+      container.classList.remove('hidden');
+      document.querySelector('.static-hero').style.display = 'none';
+
+      let current = 0;
+      setInterval(() => {
+        current = (current + 1) % slides.length;
+        track.style.transform = `translateX(-${current * 100}%)`;
+      }, 5000);
+    });
+  </script>
+</section>
+
+<style>
+  .carousel-container.hidden { display: none; }
+  .carousel-container {
+    width: 100%;
+    overflow: hidden;
+  }
+  .carousel-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+  }
+  .carousel-slide {
+    flex: 0 0 100%;
+    min-width: 0;
+  }
+</style>
