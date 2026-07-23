@@ -2,7 +2,7 @@
 import { collections } from "@/content.config";
 import { getCollection, getEntry, render } from "astro:content";
 import Card1 from "@/components/blocks/cards/Card1.astro";
-import Card2 from "@/components/blocks/cards/Card1.astro";
+import Card2 from "@/components/blocks/cards/Card2.astro";
 import ArticleLayout from "@/layouts/Articles.astro";
 import PostLayout from "@/layouts/Posts.astro";
 import ButtonLink from "@/components/ui/ButtonLink.astro";
@@ -10,49 +10,49 @@ import Images from "@/components/ui/Images.astro";
 import Layout from "@/layouts/Layout.astro";
 
 export async function getStaticPaths() {
-	// Get all collection names
-	const collectionNames = Object.keys(collections);
-	const allRoutes = [];
+  // Get all collection names
+  const collectionNames = Object.keys(collections);
+  const allRoutes = [];
 
-	for (const collectionName of collectionNames) {
-		const entries = await getCollection(collectionName as keyof typeof collections);
+  for (const collectionName of collectionNames) {
+    const entries = await getCollection(collectionName as keyof typeof collections);
 
-		const routes = entries.map((entry) => {
-			let slug;
+    const routes = entries.map((entry) => {
+      let slug: string;
 
-			if (collectionName === "pages") {
-				// Pages go to root (e.g., /about)
-				slug = entry.id;
-			} else if (entry.id === "index") {
-				// Collection index goes to /collectionName (e.g., /blog)
-				slug = collectionName;
-			} else {
-				// Regular entry goes to /collectionName/entry-id
-				slug = `${collectionName}/${entry.id}`;
-			}
+      if (collectionName === "pages") {
+        // Pages go to root (e.g., /about)
+        slug = entry.id;
+      } else if (entry.id === "index") {
+        // Collection index goes to /collectionName (e.g., /blog)
+        slug = collectionName;
+      } else {
+        // Regular entry goes to /collectionName/entry-id
+        slug = `${collectionName}/${entry.id}`;
+      }
 
-			return {
-				params: { slug },
-				props: {
-					entry,
-					collectionName,
-				},
-			};
-		});
+      return {
+        params: { slug },
+        props: {
+          entry,
+          collectionName,
+        },
+      };
+    });
 
-		allRoutes.push(...routes);
-	}
+    allRoutes.push(...routes);
+  }
 
-	return allRoutes;
+  return allRoutes;
 }
 
 const { entry, collectionName } = Astro.props;
 const { Content } = await render(entry);
 
 // defaults that work across all collections
-const title = entry.data.title;
-const description = entry.data.description || entry.data.excerpt || "";
-const robots = entry.data.robots || "index,follow";
+const title: string = entry.data.title;
+const description: string = entry.data.description || entry.data.excerpt || "";
+const robots: string = entry.data.robots || "index,follow";
 ---
 
 <Layout title={title} description={description} robots={robots}>

@@ -1,15 +1,16 @@
-/* Disable Tailwind's system preference detection */
-@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
-
 /* Tailwind */
 @import 'tailwindcss';
-@plugin '@tailwindcss/typography';
 
 /* Our design system */
 @import '../../core/src/variables.css';
 @import '../../core/src/components.css';
 @import '../../core/src/themes/light.css';
 @import '../../core/src/themes/dark.css';
+
+/* Disable Tailwind's system preference detection */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+@plugin '@tailwindcss/typography';
 
 body {
   /* this is needed to override user light/dark selection */

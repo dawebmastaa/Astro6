@@ -90,7 +90,7 @@ const currentPath = pathname.slice(1);
           <ul class="mt-4 space-y-2 text-sm">
             <li><a class="transition" href="/blog/">Blog</a></li>
             <li><a class="transition" href="/articles/">Articles</a></li>
-            <li><a class="transition" href="/">Articles</a></li>
+            <li><a class="transition" href="/resources">Resources</a></li>
             <li>
               <a class="group flex justify-center gap-1.5 ltr:sm:justify-start rtl:sm:justify-end" href="/download/">
                 <span class="transition">Downloads</span>
@@ -177,12 +177,10 @@ window.$crisp=[];window.CRISP_WEBSITE_ID="2ce0f4e3-1591-4acb-b57b-baf0b42d1edd";
 <!-- END MOBILE MENU -->
 {
 currentPath === "contact/" && (
-<!-- Cal element-click embed code begins -->
 <script is:inline>
   (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
 Cal("init", "free", {origin:"https://app.cal.com"});
   Cal.ns.free("ui", {"theme":"light","cssVarsPerTheme":{"light":{"cal-brand":"#7B1FA2"}},"hideEventTypeDetails":false,"layout":"month_view"});
   </script>
-  <!-- Cal element-click embed code ends -->
 )
 }

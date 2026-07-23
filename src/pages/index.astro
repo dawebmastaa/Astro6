@@ -1,13 +1,19 @@
 ---
 import { getEntry, render } from "astro:content";
+import Card2 from "@/components/blocks/cards/Card2.astro";
 import ButtonLink from "@/components/ui/ButtonLink.astro";
 import Images from "@/components/ui/Images.astro";
 import Layout from "@/layouts/Layout.astro";
-import Card2 from "@/components/blocks/cards/Card2.astro";
+
+interface PageData {
+	title: string;
+	description: string;
+	robots: string;
+}
 
 const home = await getEntry("pages", "index");
 const { Content } = await render(home);
-const { title, description, robots } = home.data;
+const { title, description, robots }: PageData = home.data;
 ---
 <Layout title={title} description={description} robots={robots}>
     <Content components={{ ButtonLink, Images, Card2 }} />
